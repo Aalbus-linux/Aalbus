@@ -21,18 +21,24 @@ As a warning for future users: This Linux distribution is built with alternative
 ## Overview of components:
 Core component | Implementation
 ------------ | -------------
-Kernel: | Linux
-Compiler: | LLVM/Clang
+Kernel: | Linux (+ Rump? +Zsh?)
+Compiler: | LLVM/Clang (ngtc)
 YACC: | byacc
 LEX:  | lex
 M4: | Quasar M4
+Make: | kati (might have to do gmake initially)
+Ninja: | samurai
 LibC: | musl
+LibELF: | elftoolchain
+nss: | nsss
 LibC++: | LLVM libc++
 Curses: | netbsd-curses
 Readline: | editline
 Coreutils: | nbase (NetBSD) + ubase (Suckless)
 grep: | ugrep
-Shell: | mksh
 Archivers: | libarchive
 Init system: | s6 + openrc
-
+Shell: | mksh
+roff: | neatroff
+man: | mandoc
+editor: | vis
