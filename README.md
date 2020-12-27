@@ -39,7 +39,7 @@ Coreutils: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase) + [ubase (S
 grep: | [ugrep](https://github.com/Aalbus-linux/ugrep)
 awk: | [onetrueawk](https://github.com/Aalbus-linux/awk)
 bc: | [BSD bc](https://github.com/Aalbus-linux/bc)
-sed: | [FreeBSD sed}(https://github.com/Aalbus-linux/freebsd-sed-linux)
+sed: | [FreeBSD sed](https://github.com/Aalbus-linux/freebsd-sed-linux)
 Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive)
 Init system: | [s6 init](https://github.com/Aalbus-linux/s6-linux-init) + openrc
 Shell: | [mksh](https://github.com/Aalbus-linux/mksh)
