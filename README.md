@@ -21,13 +21,14 @@ As a warning for future users: This Linux distribution is built with alternative
 ## Overview of components:
 Core component | Implementation
 ------------ | -------------
-Kernel: | [Linux](https://github.com/Aalbus-linux/linux) (+L4/L4e? + Rump? +ZFS? +Filemon?)
+Kernel: | [Linux](https://github.com/Aalbus-linux/linux) +[Filemon](https://github.com/Aalbus-linux/filemon-linux) (+L4/L4re? + Rump? +ZFS?)
 Compiler: | [LLVM/Clang (ngtc)](https://github.com/Aalbus-linux/ngtc)
 YACC: | [byacc](https://github.com/Aalbus-linux/byacc-snapshots)
 LEX:  | [lex](https://github.com/Aalbus-linux/lex)
 M4: | [Quasar M4](https://github.com/Aalbus-linux/Quasar-m4-mirror-)
-Make: | [bmake](http://www.crufty.net/help/sjg/bmake.html) default, [kati](https://github.com/Aalbus-linux/kati) as gmake (might have to do gmake initially)
+Make: | [bmake](https://github.com/Aalbus-linux/bmake) default, [kati](https://github.com/Aalbus-linux/kati) as gmake (might have to do gmake initially)
 Config: | [mk-configure](https://github.com/Aalbus-linux/mk-configure)
+pkg-config: | [pkgconf](https://github.com/Aalbus-linux/pkgconf)
 Ninja: | [samurai](https://github.com/Aalbus-linux/samurai)
 LibC: | [musl](https://github.com/Aalbus-linux/musl)
 LibELF: | [elftoolchain](https://github.com/Aalbus-linux/elftoolchain)
@@ -40,11 +41,12 @@ grep: | [ugrep](https://github.com/Aalbus-linux/ugrep)
 awk: | [onetrueawk](https://github.com/Aalbus-linux/awk)
 bc: | [BSD bc](https://github.com/Aalbus-linux/bc)
 sed: | [FreeBSD sed](https://github.com/Aalbus-linux/freebsd-sed-linux)
-Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive)
+Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive) [pigz](https://github.com/Aalbus-linux/pigz)
 Init system: | [s6 init](https://github.com/Aalbus-linux/s6-linux-init) + openrc
 Shell: | [mksh](https://github.com/Aalbus-linux/mksh)
 roff: | [neatroff](https://github.com/Aalbus-linux/neatroff)
 man: | [mandoc](https://github.com/Aalbus-linux/mandoc-mirror)
+pager: | [most](https://github.com/Aalbus-linux/most-pager)
 editor: | [vis](https://github.com/Aalbus-linux/vis)
 
 ## Overview of regular standard components in base system
