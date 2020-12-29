@@ -19,51 +19,60 @@ The base system distribution in this repo will not be committed to or built with
 As a warning for future users: This Linux distribution is built with alternative libraries, which means that it is source-compatible with most open source programs but not binary-compatible with GNU/Linux. You will thus most likely never be able to run closed source binaries intended for GNU/Linux on this OS. All sources (including modifications) used for this base system are present as forked repositories under the Aalbus-Linux organization. 
 
 ## Overview of components:
-Core component | Implementation
------------- | -------------
-Kernel: | [Linux](https://github.com/Aalbus-linux/linux) +[Filemon](https://github.com/Aalbus-linux/filemon-linux) (+L4/L4re? + Rump? +ZFS?)
-Compiler: | [LLVM/Clang (ngtc)](https://github.com/Aalbus-linux/ngtc)
-YACC: | [byacc](https://github.com/Aalbus-linux/byacc-snapshots)
-LEX:  | [lex](https://github.com/Aalbus-linux/lex)
-M4: | [Quasar M4](https://github.com/Aalbus-linux/Quasar-m4-mirror-)
-Make: | [bmake](https://github.com/Aalbus-linux/bmake) default, [kati](https://github.com/Aalbus-linux/kati) as gmake (might have to do gmake initially)
-Config: | [mk-configure](https://github.com/Aalbus-linux/mk-configure)
-pkg-config: | [pkgconf](https://github.com/Aalbus-linux/pkgconf)
-libtool: | [slibtool](https://github.com/Aalbus-linux/slibtool)
-Ninja: | [samurai](https://github.com/Aalbus-linux/samurai)
-LibC: | [musl](https://github.com/Aalbus-linux/musl)
-LibELF: | [elftoolchain](https://github.com/Aalbus-linux/elftoolchain)
-nss: | [nsss](https://github.com/Aalbus-linux/nsss) (static)
-LibC++: | [LLVM libc++ (ngtc)](https://github.com/Aalbus-linux/ngtc)
-Curses: | [netbsd-curses](https://github.com/Aalbus-linux/netbsd-curses)
-Readline: | [libedit](https://github.com/Aalbus-linux/libedit)
-Coreutils: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase) + [ubase (Suckless)](https://github.com/Aalbus-linux/ubase)
-grep: | [ugrep](https://github.com/Aalbus-linux/ugrep)
-awk: | [onetrueawk](https://github.com/Aalbus-linux/awk)
-bc: | [BSD bc](https://github.com/Aalbus-linux/bc)
-sed: | [FreeBSD sed](https://github.com/Aalbus-linux/freebsd-sed-linux)
-Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive) [pigz](https://github.com/Aalbus-linux/pigz)
-Init system: | [s6 init](https://github.com/Aalbus-linux/s6-linux-init) + openrc
-udev: | [mdevd](https://github.com/Aalbus-linux/mdevd)
-Shell: | [mksh](https://github.com/Aalbus-linux/mksh)
-roff: | [neatroff](https://github.com/Aalbus-linux/neatroff)
-man: | [mandoc](https://github.com/Aalbus-linux/mandoc-mirror)
-pager: | [most](https://github.com/Aalbus-linux/most-pager)
-editor: | [vis](https://github.com/Aalbus-linux/vis)
+Core component | Implementation | Built
+------------ | ------------- | -------------
+Kernel: | [Linux](https://github.com/Aalbus-linux/linux) +[Filemon](https://github.com/Aalbus-linux/filemon-linux) (+ZFS?) | 
+Compiler: | bootstrap: [ngtc](https://github.com/Aalbus-linux/ngtc) final: [LLVM/Clang checkedC](https://github.com/Aalbus-linux/checkedc-clang) |  ✅ 
+YACC: | [byacc](https://github.com/Aalbus-linux/byacc-snapshots) | 
+LEX:  | [lex](https://github.com/Aalbus-linux/lex) | 
+M4: | [Quasar M4](https://github.com/Aalbus-linux/Quasar-m4-mirror-) | 
+Make: | [bmake](https://github.com/Aalbus-linux/bmake) as make, [kati](https://github.com/Aalbus-linux/kati) as gmake | 
+Config: | [mk-configure](https://github.com/Aalbus-linux/mk-configure) | 
+pkg-config: | [pkgconf](https://github.com/Aalbus-linux/pkgconf) | 
+libtool: | [slibtool](https://github.com/Aalbus-linux/slibtool) | 
+Ninja: | [samurai](https://github.com/Aalbus-linux/samurai) | 
+LibC: | [musl](https://github.com/Aalbus-linux/musl) + [llvm-crt-replacement](https://github.com/Aalbus-linux/llvm-crt-replacement) |  ✅   ✅ 
+LibELF: | [elftoolchain](https://github.com/Aalbus-linux/elftoolchain) | 
+nss: | [nsss](https://github.com/Aalbus-linux/nsss) (static) | 
+LibC++: | bootstrap: [ngtc](https://github.com/Aalbus-linux/ngtc) final: [LLVM](https://github.com/Aalbus-linux/checkedc-clang) |  ✅  
+Curses: | [netbsd-curses](https://github.com/Aalbus-linux/netbsd-curses) | 
+Readline: | [libedit](https://github.com/Aalbus-linux/libedit) | 
+Coreutils: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase) + [ubase (Suckless)](https://github.com/Aalbus-linux/ubase) | 
+grep: | [ugrep](https://github.com/Aalbus-linux/ugrep) | 
+awk: | [onetrueawk](https://github.com/Aalbus-linux/awk) | 
+bc: | [BSD bc](https://github.com/Aalbus-linux/bc) | 
+sed: | [FreeBSD sed](https://github.com/Aalbus-linux/freebsd-sed-linux) | 
+Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive) [pigz](https://github.com/Aalbus-linux/pigz) | 
+Init system: | [s6 init](https://github.com/Aalbus-linux/s6-linux-init) + openrc |
+udev: | [mdevd](https://github.com/Aalbus-linux/mdevd) | 
+Shell: | [mksh](https://github.com/Aalbus-linux/mksh) | 
+roff: | [neatroff](https://github.com/Aalbus-linux/neatroff) | 
+man: | [mandoc](https://github.com/Aalbus-linux/mandoc-mirror) | 
+pager: | [most](https://github.com/Aalbus-linux/most-pager) | 
+editor: | [vis](https://github.com/Aalbus-linux/vis) | 
 
 
 ## Overview of regular standard components in base system
-Core component | Implementation
------------- | -------------
-Extended file attributes: | attr
-Access contol list: | acl
-Shadow: | shadow
-Bootloader: | syslinux
-Curl: | curl
-Perl: | perl
-Version control: | git
+Core component | Implementation | Built
+------------ | ------------- | -------------
+Extended file attributes: | [attr](https://github.com/Aalbus-linux/attr) | 
+Access contol list: | [acl](https://github.com/Aalbus-linux/acl) | 
+Pam | [OpenPAM](https://github.com/Aalbus-linux/OpenPAM) | 
+Magic | [file](https://github.com/Aalbus-linux/file) | 
+Shadow: | [shadow](https://github.com/Aalbus-linux/shadow) | 
+Bootloader: | syslinux | 
+Curl: | curl | 
+Perl: | perl | 
+Version control: | git | 
 
 ## extra dependencies pulled in by above packages
-Package | Dependency
------------- | -------------
-most: | S-Lang 
+Package | Dependency | Built
+------------ | ------------- | -------------
+most: | [S-Lang](https://github.com/Aalbus-linux/S-Lang) |
+attr: | [gettext-tiny](https://github.com/Aalbus-linux/gettext-tiny) |  ✅ 
+shadow: | [libcap-ng](https://github.com/Aalbus-linux/libcap-ng) |
+shadow: | [skey](https://github.com/Aalbus-linux/skey) | 
+s6 init: | [skalibs](https://github.com/Aalbus-linux/skalibs) |
+: | [libbsd](https://github.com/Aalbus-linux/libbsd) | 
+: | [libnl-tiny](https://github.com/Aalbus-linux/libnl-tiny) |  ✅ 
+: | [gnu-getopt](https://github.com/Aalbus-linux/gnu-getopt) |  ✅ 

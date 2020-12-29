@@ -98,6 +98,14 @@ make prefix=/usr DESTDIR=/mnt/dest install
 
 ## build acl
 
+## build skey
+
+## build libcap
+
+## build openpam
+
+## build shadow
+
 # build m4
 
 
