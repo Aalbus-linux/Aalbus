@@ -10,7 +10,7 @@ The OS is not motivated by language or license fundamentalism or anti-GNU sentim
 
 
 # Aims
-Aalbus is an experimental base system which aims to be self-hosting and installable (I have not yet decided whether ZFS should be an option). The components of the base system are interesting alternative (mostly) source-compatible alternative implementations of those typically found in a standard GNU/Linux distribution. Whenever possible, alternative BSD utilities will be used.
+Aalbus is an experimental base system which aims to be self-hosting and installable (I have not yet decided whether ZFS should be an option). The components of the base system are interesting (mostly) source-compatible alternative implementations of those typically found in a standard GNU/Linux distribution. Whenever possible, BSD utilities will be used.
 
 The base system distribution in this repo will not be committed to or built with a specific package manager in mind, but if there will be a live iso or other installable media in the future, it will come with pkgsrc included along with some useful 3rd party stuff installed via pkgsrc. There may also be an additional local pkgsrc repository including useful but linux-specific packages (wlroots. sway, ...) that may not be in the pkgsrc repository. 
 
@@ -29,6 +29,7 @@ M4: | [Quasar M4](https://github.com/Aalbus-linux/Quasar-m4-mirror-)
 Make: | [bmake](https://github.com/Aalbus-linux/bmake) default, [kati](https://github.com/Aalbus-linux/kati) as gmake (might have to do gmake initially)
 Config: | [mk-configure](https://github.com/Aalbus-linux/mk-configure)
 pkg-config: | [pkgconf](https://github.com/Aalbus-linux/pkgconf)
+libtool: | [slibtool](https://github.com/Aalbus-linux/slibtool)
 Ninja: | [samurai](https://github.com/Aalbus-linux/samurai)
 LibC: | [musl](https://github.com/Aalbus-linux/musl)
 LibELF: | [elftoolchain](https://github.com/Aalbus-linux/elftoolchain)
@@ -43,11 +44,13 @@ bc: | [BSD bc](https://github.com/Aalbus-linux/bc)
 sed: | [FreeBSD sed](https://github.com/Aalbus-linux/freebsd-sed-linux)
 Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive) [pigz](https://github.com/Aalbus-linux/pigz)
 Init system: | [s6 init](https://github.com/Aalbus-linux/s6-linux-init) + openrc
+udev: | [mdevd](https://github.com/Aalbus-linux/mdevd)
 Shell: | [mksh](https://github.com/Aalbus-linux/mksh)
 roff: | [neatroff](https://github.com/Aalbus-linux/neatroff)
 man: | [mandoc](https://github.com/Aalbus-linux/mandoc-mirror)
 pager: | [most](https://github.com/Aalbus-linux/most-pager)
 editor: | [vis](https://github.com/Aalbus-linux/vis)
+
 
 ## Overview of regular standard components in base system
 Core component | Implementation
@@ -60,3 +63,7 @@ Curl: | curl
 Perl: | perl
 Version control: | git
 
+## extra dependencies pulled in by above packages
+Package | Dependency
+------------ | -------------
+most: | S-Lang 

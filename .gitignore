@@ -1,0 +1,20 @@
+# Ignore everything in dest and src
+dest/*
+src/*
+
+# ...even if they are in subdirectories
+!*/ 
+
+# But not these files...
+!.gitignore
+!README.md
+!LICENSE
+!dest/etc/group
+!dest/etc/hosts
+!dest/etc/passwd
+!dest/etc/os-release
+!src/bootstrap
+!src/chroot-aalbus
+!src/ngtc_env.sh
+
+

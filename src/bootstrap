@@ -1,0 +1,146 @@
+# this was originalluy meant as a script, but it would have been too long and complex.
+# Read this more as a step-by-step instruction made from notes I made as I built this thing.
+# good reading material: https://github.com/comfies/tldrlfs
+# http://www.linuxfromscratch.org/lfs/view/stable/
+
+# scripts for initial building of Aalbus from a regular Linux host
+# This will build up to the point of a base system that can be chrooted
+# The general order of things is similar to what you would read on LFS, but with other programs
+# Aalbus is only built for x86_64. Other architectures may be targetted in the future if a community builds around this distro
+# In that case, the most likely future will anyway be that those alternative architectures will be cross-compiled from within
+# a x86_64 Aalbus system.
+
+# You might have to add some directories in dest since git ignores empty directories.
+mkdir -p ../dest/{bin,etc,lib,include,sbin,usr/{bin,sbin,include,lib,share,man,src},var,proc,sys,dev,run}
+
+#note on / vs /usr : I take the traditional approach where things critical for booting and running are in / and extras in /usr
+
+# fetch and build ngtc depends on docker (builds on Alpine)
+# ngtc is used as a convenient first step. When we chroot, we will rebuild the toolchain inside Aalbus
+docker run tpimh/ngtc:latest /bin/sh -c 'git clone https://github.com/tpimh/ngtc && cd ngtc && root/sync.sh && root/configure.sh && root/build.sh && root/install.sh'
+#identify <ID> of modified docker
+docker ps -a
+#save/commit docker image
+docker commit <ID> ngtc-built
+#after that one could run something like:
+docker run -it -v"$PWD/..":/mnt --rm ngtc-built /bin/sh
+#now you have /mnt/src and /mnt/dest and can start building.
+#inside the docker image shell:
+export PATH="/mnt/dest/bin:/x86_64-linux-pc-musl/bin:$PATH"
+export LIBRARY_PATH="/mnt/dest/lib:/mnt/dest/usr/lib:/x86_64-linux-pc-musl/lib:$LIBRARY_PATH"
+export CFLAGS="-I/mnt/dest/include -I/x86_64-linux-pc-musl/include -L/mnt/dest/lib -L/mnt/dest/usr/lib -L/x86_64-linux-pc-musl/lib $CFLAGS"
+export CC="clang"
+export CXX="clang++"
+export LD="lld"
+export AR="llvm-ar"
+export NM="llvm-nm"
+export RANLIB="llvm-ranlib"
+
+#to make it easy, I put these things in ntgc_env.sh so you can just start the docker image like this:
+docker run -it -v"$PWD/..":/mnt --rm ngtc-built /bin/sh source ngtc_env.sh && /bin/sh
+#and start building...
+
+# A faster alternative method: Download ngtc and root file system 
+# from https://golovin.in/ and chroot a build environment.
+
+# The order of the packages below follows the LFS instructions
+## indicates that a package had to be built as a dependency for the package below
+
+# install musl kernel headers
+git clone https://github.com/Aalbus-linux/kernel-headers
+cd kernel-headers
+make ARCH=x86_64 prefix=/usr DESTDIR=../../dest install
+
+# build musl libc
+git clone https://github.com/Aalbus-linux/musl
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/musl
+configure --prefix=/  --exec-prefix=/
+make
+make DESTDIR=/mnt/dest install
+make clean
+exit
+
+# build m4
+
+# build netbsd-curses
+
+# build mksh
+
+# build core utilities : ubase
+
+## build bmake
+## at this stage, keep bmake as bmake and only rename to make at the end
+
+
+## build mk-configure
+
+
+# build core utilities : nbase
+
+
+#### diffutil replacement?
+
+
+# build file(1)
+
+#### findutils replacement?
+
+# build awk
+
+# build ugrep
+
+# build pgzip
+
+## build samurai
+
+# build kati
+
+#### Patch?
+
+# build freebsd-sed-linux
+
+# build libarchive
+
+# build xz
+
+# build llvm/clang toolchain for the Aalbus chroot (stage 2)
+
+===>>
+Keep on building in chroot
+
+#you can use the Aalbus-chroot script for convenience
+
+#in chroot (copied and modified from LFS for convenience):
+mkdir -pv /etc/{opt,sysconfig}
+mkdir -pv /lib/firmware
+mkdir -pv /media/{floppy,cdrom}
+mkdir -pv /usr/{,local/}{bin,include,lib,sbin,src}
+mkdir -pv /usr/{,local/}share/{color,dict,doc,info,locale,man}
+mkdir -pv /usr/{,local/}share/{misc,terminfo,zoneinfo}
+mkdir -pv /usr/{,local/}share/man/man{1..8}
+mkdir -pv /var/{cache,local,log,mail,opt,spool}
+mkdir -pv /var/lib/{color,misc,locate}
+
+ln -sfv /run /var/run
+ln -sfv /run/lock /var/lock
+
+install -dv -m 0750 /root
+install -dv -m 1777 /tmp /var/tmp
+
+ln -sv /proc/self/mounts /etc/mtab
+
+
+# build gettext-tiny
+
+# build byacc
+
+#### NOT build perl
+
+#### NOT build python
+
+#### Texinfo?
+
+#### util-linux replaced by ubase
+
+

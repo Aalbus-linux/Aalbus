@@ -1,0 +1,11 @@
+#!/bin/sh
+
+mount -t proc /proc ../dest/proc/
+mount --rbind /sys ../dest/sys/
+mount --rbind /dev ../dest/dev/
+mount --rbind /dev/pts ../dest/dev/pts/
+mount --rbind /run ../dest/run/
+
+chroot ../dest /bin/mksh
+
+
