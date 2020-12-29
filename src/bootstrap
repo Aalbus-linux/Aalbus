@@ -26,9 +26,10 @@ docker commit <ID> ngtc-built
 docker run -it -v"$PWD/..":/mnt --rm ngtc-built /bin/sh
 #now you have /mnt/src and /mnt/dest and can start building.
 #inside the docker image shell:
-export PATH="/mnt/dest/bin:/x86_64-linux-pc-musl/bin:$PATH"
-export LIBRARY_PATH="/mnt/dest/lib:/mnt/dest/usr/lib:/x86_64-linux-pc-musl/lib:$LIBRARY_PATH"
-export CFLAGS="-I/mnt/dest/include -I/x86_64-linux-pc-musl/include -L/mnt/dest/lib -L/mnt/dest/usr/lib -L/x86_64-linux-pc-musl/lib $CFLAGS"
+export PATH="/mnt/dest/bin:/x86_64-pc-linux-musl/bin:$PATH"
+export LIBRARY_PATH="/mnt/dest/lib:/mnt/dest/usr/lib:/x86_64-pc-linux-musl/lib:$LIBRARY_PATH"
+export CFLAGS="-I/mnt/dest/include -I/x86_64-pc-linux-musl/include $CFLAGS"
+export LDFLAGS="-L/mnt/dest/lib -L/mnt/dest/usr/lib -L/x86_64-pc-linux-musl/lib $LDFLAGS"
 export CC="clang"
 export CXX="clang++"
 export LD="lld"
@@ -37,7 +38,7 @@ export NM="llvm-nm"
 export RANLIB="llvm-ranlib"
 
 #to make it easy, I put these things in ntgc_env.sh so you can just start the docker image like this:
-docker run -it -v"$PWD/..":/mnt --rm ngtc-built /bin/sh source ngtc_env.sh && /bin/sh
+docker run -it -v"$PWD/..":/mnt --rm ngtc-built /bin/sh /mnt/src/ngtc_env.sh
 #and start building...
 
 # A faster alternative method: Download ngtc and root file system 
@@ -61,7 +62,46 @@ make DESTDIR=/mnt/dest install
 make clean
 exit
 
+## build llvm-crt-replacement
+git clone https://github.com/Aalbus-linux/llvm-crt-replacement
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/llvm-crt-replacement
+TARGET=x86_64 DEST=/mnt/dest/usr/lib ./build.sh
+
+## build gettext-tiny (for attr)
+git clone https://github.com/Aalbus-linux/gettext-tiny
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/gettext-tiny
+make LIBINTL=musl CFLAGS="$CFLAGS -fPIC"
+make LIBINTL=musl DESTDIR=/mnt/dest prefix=/usr install
+
+## build libnl-tiny
+git clone https://github.com/Aalbus-linux/libnl-tiny
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/libnl-tiny
+make CC=clang CFLAGS="$CFLAGS -fPIC" prefix=/usr DESTDIR=/mnt/dest all install
+
+## build gnu-getopt
+git clone https://github.com/Aalbus-linux/gnu-getopt
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/gnu-getopt
+make
+make prefix=/usr DESTDIR=/mnt/dest install
+
+## build libbsd : cheat (autogen on Arch)
+
+## build skalibs
+
+## build nsss
+
+## build attr
+
+## build acl
+
 # build m4
+
+
+## build bc
 
 # build netbsd-curses
 
@@ -131,7 +171,7 @@ install -dv -m 1777 /tmp /var/tmp
 ln -sv /proc/self/mounts /etc/mtab
 
 
-# build gettext-tiny
+### gettext-tiny already built
 
 # build byacc
 
