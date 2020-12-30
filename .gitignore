@@ -2,9 +2,6 @@
 dest/*
 src/*
 
-# ...even if they are in subdirectories
-!*/ 
-
 # But not these files...
 !.gitignore
 !README.md
@@ -17,4 +14,5 @@ src/*
 !src/chroot-aalbus
 !src/ngtc_env.sh
 
-
+# ...even if they are in subdirectories
+!*/ 
