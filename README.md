@@ -37,16 +37,17 @@ nss: | [nsss](https://github.com/Aalbus-linux/nsss) (static) |   ✅
 LibC++: | bootstrap: [ngtc](https://github.com/Aalbus-linux/ngtc) final: [LLVM](https://github.com/Aalbus-linux/checkedc-clang) |  ✅  x
 Curses: | [netbsd-curses](https://github.com/Aalbus-linux/netbsd-curses) |   ✅ 
 Readline: | [libedit](https://github.com/Aalbus-linux/libedit) |  ✅
-Pam | [OpenPAM](https://github.com/Aalbus-linux/OpenPAM) | 
+Pam | [OpenPAM](https://github.com/Aalbus-linux/OpenPAM) | ✅
 libcap | [libcap-ng](https://github.com/Aalbus-linux/libcap-ng) | ✅
-Coreutils: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase) + [ubase (Suckless)](https://github.com/Aalbus-linux/ubase) (static)| x ✅ 
+Coreutils: | bootstrap: [sbase (Suckless)]() final: [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase)  | ✅ x
+util-linux: | [ubase (Suckless)](https://github.com/Aalbus-linux/ubase) (static) | ✅
 grep: | [ugrep](https://github.com/Aalbus-linux/ugrep) | 
 awk: | [onetrueawk](https://github.com/Aalbus-linux/awk) | ✅ 
 bc: | [BSD bc](https://github.com/Aalbus-linux/bc) | ✅ 
 sed: | [FreeBSD sed](https://github.com/Aalbus-linux/freebsd-sed-linux) | 
 zlib: | [zlib-ng](https://github.com/Aalbus-linux/zlib-ng) | ✅ 
-Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive) [pigz](https://github.com/Aalbus-linux/pigz) | x ✅  
-Init system: | [s6 init](https://github.com/Aalbus-linux/s6-linux-init) + [s6-rc](https://github.com/Aalbus-linux/s6-linux-init) |
+Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive) [pigz](https://github.com/Aalbus-linux/pigz) | x ✅
+Init system: | [s6 init](https://github.com/Aalbus-linux/s6-linux-init) + [s6-rc](https://github.com/Aalbus-linux/s6-linux-init) | ✅ ✅ 
 udev: | [mdevd](https://github.com/Aalbus-linux/mdevd) |  ✅ 
 Shell: | [mksh](https://github.com/Aalbus-linux/mksh) (static) | ✅ 
 roff: | [neatroff](https://github.com/Aalbus-linux/neatroff) | ✅
@@ -64,29 +65,37 @@ Magic | [file](https://github.com/Aalbus-linux/file) |  ✅
 Shadow: | [shadow](https://github.com/Aalbus-linux/shadow) | 
 Bootloader: | syslinux | 
 Curl: | curl | 
-Perl: | perl | 
+Perl: | [perl5](https://github.com/Aalbus-linux/perl5) | ✅
 Version control: | git | 
 CMake : | CMake | 
 
 ## extra dependencies pulled in by above packages
 Package | Dependency | Built
 ------------ | ------------- | -------------
-most: | [S-Lang](https://github.com/Aalbus-linux/S-Lang) |   ✅ 
-attr: | [gettext-tiny](https://github.com/Aalbus-linux/gettext-tiny) |  ✅ 
-shadow: | [libcap-ng](https://github.com/Aalbus-linux/libcap-ng) | ✅
-shadow: | [skey](https://github.com/Aalbus-linux/skey) | 
-s6 init: | [skalibs](https://github.com/Aalbus-linux/skalibs) |   ✅ 
-s6 : | [execline](https://github.com/Aalbus-linux/execline) |    ✅ 
-: | [utpmps](https://github.com/Aalbus-linux/utmps) |   ✅ 
+most | [S-Lang](https://github.com/Aalbus-linux/S-Lang) |   ✅ 
+attr | [gettext-tiny](https://github.com/Aalbus-linux/gettext-tiny) |  ✅ 
+shadow | [libcap-ng](https://github.com/Aalbus-linux/libcap-ng) | ✅
+shadow | [skey](https://github.com/Aalbus-linux/skey) | 
+s6-linux-init | [skalibs](https://github.com/Aalbus-linux/skalibs) |   ✅ 
+s6-linux-init | [s6](https://github.com/Aalbus-linux/s6) | ✅
+: | [s6-networking](https://github.com/Aalbus-linux/s6-networking) | 
+s6-linux-init | [execline](https://github.com/Aalbus-linux/execline) |    ✅ 
+s6-linux-init | [utpmps](https://github.com/Aalbus-linux/utmps) |   ✅ 
 : | [libbsd](https://github.com/Aalbus-linux/libbsd) | ✅
 : | [libnl-tiny](https://github.com/Aalbus-linux/libnl-tiny) |  ✅ 
 : | [gnu-getopt](https://github.com/Aalbus-linux/gnu-getopt) |  ✅ 
-libarchive | [bzip2](https://github.com/Aalbus-linux/bzip2) | 
-libarchive | [libb2](https://github.com/Aalbus-linux/libb2) | 
-libarchive | [lz4](https://github.com/Aalbus-linux/lz4) |
-libarchive | [zsst](https://github.com/Aalbus-linux/zstd) |
-libarchive | [xz](https://github.com/Aalbus-linux/xz) |
-libarchive | [libxml2](https://github.com/Aalbus-linux/libxml2) |
-libarchive | [libexpat](https://github.com/Aalbus-linux/libexpat) |
+: | [libglob](https://github.com/Aalbus-linux/libglob) | ✅
+libarchive | [bzip2](https://github.com/Aalbus-linux/bzip2) | ✅ 
+libarchive | [libb2](https://github.com/Aalbus-linux/libb2) | ✅
+libarchive | [lz4](https://github.com/Aalbus-linux/lz4) | ✅
+libarchive | [zsst](https://github.com/Aalbus-linux/zstd) | ✅
+libarchive | [xz](https://github.com/Aalbus-linux/xz) | ✅
+libarchive | [libxml2](https://github.com/Aalbus-linux/libxml2) | ✅
+libarchive | [libexpat](https://github.com/Aalbus-linux/libexpat) | ✅
 libarchive | [openssl](https://github.com/Aalbus-linux/openssl) |
 mk-configure | [bmkdep](https://github.com/Aalbus-linux/bmkdep) | ✅ 
+nbase | [musl-fts](https://github.com/Aalbus-linux/musl-fts) | ✅
+vis | [libtermkey](https://github.com/Aalbus-linux/libtermkey) |
+vis | [lpeg](https://github.com/Aalbus-linux/lpeg) |
+vis | [tre](https://github.com/Aalbus-linux/tre) | ✅
+vis | [lua](https://github.com/Aalbus-linux/lua) | 

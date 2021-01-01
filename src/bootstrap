@@ -154,6 +154,30 @@ cd /mnt/src/s6
 ./configure --disable-shared --prefix=/usr --with-sysdeps=/mnt/dest/usr/lib/skalibs/sysdeps
 make DESTDIR=/mnt/dest LDFLAGS="-L/mnt/dest/usr/lib/skalibs -L/mnt/dest/usr/lib/execline $LDFLAGS" install
 
+## buold s6-linux-init
+git clone https://github.com/Aalbus-linux/s6-linux-init
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/s6-linux-init
+./configure --disable-shared --prefix=/ --with-sysdeps=/mnt/dest/usr/lib/skalibs/sysdeps
+make DESTDIR=/mnt/dest LDFLAGS="-L/mnt/dest/usr/lib/skalibs -L/mnt/dest/usr/lib/execline -L/mnt/dest/usr/lib/nsss -L/mnt/dest/usr/lib/utmps -L/mnt/dest/usr/lib/s6 $LDFLAGS" install
+
+## build s6-rc
+git clone https://github.com/Aalbus-linux/s6-rc
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/s6-rc
+./configure --disable-shared --prefix=/ --with-sysdeps=/mnt/dest/usr/lib/skalibs/sysdeps
+make DESTDIR=/mnt/dest LDFLAGS="-L/mnt/dest/usr/lib/skalibs -L/mnt/dest/usr/lib/execline -L/mnt/dest/usr/lib/nsss -L/mnt/dest/usr/lib/utmps -L/mnt/dest/usr/lib/s6 $LDFLAGS" install
+
+## build s6-dns
+git clone https://github.com/Aalbus-linux/s6-dns
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/s6-dns
+
+## buold s6-networking
+git clone https://github.com/Aalbus-linux/s6-networking
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/s6-networking
+
 ####### end of skarnet stuff ##########
 
 ## build attr
@@ -199,8 +223,10 @@ make DESTDIR=/mnt/dest install
 ## build openpam
 git clone https://github.com/Aalbus-linux/OpenPAM
 # <enter docker environment with ngtc_env.sh>
-cd /mnt/src/OpenPAM/openpam
-./configure --prefix=/usr --sysconfdir=/etc
+cd /mnt/src/OpenPAM
+./configure --prefix=/usr --sysconfdir=/etc --disable-shared
+make
+make DESTDIR=/mnt/dest install
 
 ## build shadow
 git clone https://github.com/Aalbus-linux/shadow
@@ -280,6 +306,85 @@ cd /mnt/src/bmake
 #edit install-sh and add #!/bin/sh
 ./boot-strap --install-destdir=/mnt/dest --prefix=/usr op=install
 
+# build libbz2
+git clone https://github.com/Aalbus-linux/bzip2
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/bzip2
+make CC=clang CFLAGS=$CFLAGS 
+make PREFIX=/mnt/dest/usr install
+
+# build libb2
+git clone https://github.com/Aalbus-linux/libb2
+# autogen.sh
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/libb2
+./configure --prefix=/usr --sysconfdir=/etc
+make
+make DESTDIR=/mnt/dest install
+
+# build lz4
+git clone https://github.com/Aalbus-linux/lz4
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/lz4
+make -C lib PREFIX=/usr
+make -C programs PREFIX=/usr lz4 lz4c
+make install PREFIX=/usr DESTDIR=/mnt/dest
+
+# build xz
+git clone https://github.com/Aalbus-linux/xz
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/xz
+./configure --prefix=/usr --sysconfdir=/etc --disable-nls --disable-shared
+make
+make DESTDIR=/mnt/dest install
+
+# build zstd
+git clone https://github.com/Aalbus-linux/zstd
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/zstd
+make
+make -C contrib/pzstd
+make PREFIX=/usr DESTDIR=/mnt/dest install
+
+# build libexpat
+git clone https://github.com/Aalbus-linux/libexpat
+# libtoolize autoreconf on host : issues, do release tarball instead
+# https://github.com/libexpat/libexpat/releases/download/R_2_2_10/expat-2.2.10.tar.bz2
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/libexpat/expat
+#delete CXXCPP sanity check
+./configure --prefix=/usr CPPFLAGS=-DXML_LARGE_SIZE --disable-shared
+make
+make DESTDIR=/mnt/dest install
+
+# build libxml2
+git clone https://github.com/Aalbus-linux/libxml2
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/libxml2
+./configure --prefix=/usr --sysconfdir=/etc --disable-shared --without-python
+make
+make DESTDIR=/mnt/dest install
+
+#build tre
+#annoying autoconf/automake stuff
+# use http://laurikari.net/tre/tre-0.8.0.tar.bz2
+./configure --prefix=/usr --sysconfdir=/etc
+make
+make DESTDIR=/mnt/dest install
+
+## build perl5
+git clone https://github.com/Aalbus-linux/perl5
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/perl5
+./aalbus-config.sh
+make
+make DESTDIR=/mnt/dest install
+
+## build openssl
+
+
+# build libarchive
+
 ## build libelf from elftoolchain
 git clone https://github.com/Aalbus-linux/elftoolchain
 # <enter docker environment with ngtc_env.sh>
@@ -316,10 +421,41 @@ export PREFIX=/usr SYSCONFDIR=/etc MANDIR=/usr/share/man
 bmake -m /mnt/dest/usr/share/mk CUSTOM.prog_nbmkdep=/usr/bin/bmkdep all
 bmake -m /mnt/dest/usr/share/mk CUSTOM.prog_nbmkdep=/usr/bin/bmkdep DESTDIR=/mnt/dest install
 
-# build core utilities : nbase
-git clone https://github.com/Aalbus-linux/nbase
+## build musl-fts
+git clone https://github.com/Aalbus-linux/musl-fts
 # <enter docker environment with ngtc_env.sh>
-cd /mnt/src/nbase
+cd /mnt/src/musl-fts
+./build.sh
+
+## build libglob
+git clone https://github.com/Aalbus-linux/libglob
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/libglob
+make PREFIX=/usr DESTDIR=/mnt/dest install
+
+# build temporary core utilities : sbase
+# nbase difficult to build using custom include paths for bmake mk files
+git clone https://github.com/Aalbus-linux/sbase
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/sbase
+make CFLAGS="-static $CFLAGS" LDFLAGS="$LDFLAGS"
+make DESTDIR=/mnt/dest install
+
+## dependency in nbase : tzfile.h
+## https://data.iana.org/time-zones/releases/tzcode2020f.tar.gz
+## https://data.iana.org/time-zones/releases/tzdata2020f.tar.gz
+## make CC=clang CFLAGS=$CFLAGS
+## make DESTDIR=/mnt/dest install
+## cp tzfile.h /mnt/dest/usr/include/
+
+# build core utilities : nbase
+# mkcmake too annoying to use while building from a different root.
+# install bmake bmkdep and mk-configure in docker root. Optional: commit this image.
+git clone https://github.com/Aalbus-linux/nbase
+cd nbase
+PREFIX=/ SYSCONFDIR=/etc MANDIR=/usr/share/man  CFLAGS="-static -Wno-error $CFLAGS" LDFLAGS="$LDFLAGS -lfts" mkcmake all
+mkcmake DESTDIR=/mnt/dest install
+
 
 #### diffutils replacement?
 
@@ -408,21 +544,34 @@ ln -s pigz gzip
 ln -s pigz gunzip
 
 ## build samurai
+git clone https://github.com/Aalbus-linux/samurai
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/samurai
 
 # build kati
+git clone https://github.com/Aalbus-linux/kati
+# <enter docker environment with ngtc_env.sh>
+cd /mnt/src/kati
+make CXX=clang++ KATI_CXXFLAGS="-g -W -Wall -MMD -MP -O -DNOLOG $CFLAGS" ckati
 
 #### Patch?
 
 # build freebsd-sed-linux
 
-# build libarchive
+## build libtermkey
 
-# build xz
+## build tre
+
+## build lua
+
+# build vis
 
 # build llvm/clang toolchain for the Aalbus chroot (stage 2)
 
 ===>>
 Keep on building in chroot
+
+
 
 #you can use the Aalbus-chroot script for convenience
 

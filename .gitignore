@@ -13,6 +13,7 @@ src/*
 !src/bootstrap
 !src/chroot-aalbus
 !src/ngtc_env.sh
+!src/ngtc_start.sh
 
 # ...even if they are in subdirectories
 !*/ 
