@@ -26,13 +26,13 @@ Compiler: | bootstrap: [ngtc](https://github.com/Aalbus-linux/ngtc) final: [LLVM
 YACC: | [byacc](https://github.com/Aalbus-linux/byacc-snapshots) | ✅ 
 LEX:  | [lex](https://github.com/Aalbus-linux/lex) |  ✅ 
 M4: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase)  | ✅
-Make: | [bmake](https://github.com/Aalbus-linux/bmake) as make, [kati](https://github.com/Aalbus-linux/kati) as gmake | ✅ x
+Make: | [bmake](https://github.com/Aalbus-linux/bmake) as make, [kati](https://github.com/Aalbus-linux/kati) as gmake | ✅ ✅ 
 Config: | [mk-configure](https://github.com/Aalbus-linux/mk-configure) | ✅ 
 pkg-config: | [pkgconf](https://github.com/Aalbus-linux/pkgconf) | ✅ 
 libtool: | [slibtool](https://github.com/Aalbus-linux/slibtool) |  ✅
 Ninja: | [samurai](https://github.com/Aalbus-linux/samurai) | ✅
 LibC: | [musl](https://github.com/Aalbus-linux/musl) + [llvm-crt-replacement](https://github.com/Aalbus-linux/llvm-crt-replacement) |  ✅   ✅ 
-LibELF: | [elftoolchain](https://github.com/Aalbus-linux/elftoolchain) | 
+LibELF: | [elftoolchain](https://github.com/Aalbus-linux/elftoolchain) | ✅
 nss: | [nsss](https://github.com/Aalbus-linux/nsss) (static) |   ✅ 
 LibC++: | bootstrap: [ngtc](https://github.com/Aalbus-linux/ngtc) final: [LLVM](https://github.com/Aalbus-linux/llvm-project) |  ✅  ✅
 Curses: | [netbsd-curses](https://github.com/Aalbus-linux/netbsd-curses) |   ✅ 
@@ -66,8 +66,8 @@ Shadow: | [shadow](https://github.com/Aalbus-linux/shadow) | ✅
 Bootloader: | syslinux | 
 Curl: | [curl](https://github.com/Aalbus-linux/curl) | ✅ 
 Perl: | [perl5](https://github.com/Aalbus-linux/perl5) | ✅
-Version control: | git | 
-CMake : | CMake | 
+Version control: | git | ✅ 
+CMake : | CMake | ✅ 
 
 ## extra dependencies pulled in by above packages
 Package | Dependency | Built
