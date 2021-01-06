@@ -9,7 +9,9 @@ src/*
 !dest/etc/group
 !dest/etc/hosts
 !dest/etc/passwd
+!dest/etc/profile
 !dest/etc/os-release
+!dest/usr/local/scripts/*
 !src/bootstrap
 !src/chroot-aalbus
 !src/ngtc_env.sh
