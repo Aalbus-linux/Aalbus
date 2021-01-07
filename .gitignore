@@ -16,6 +16,8 @@ src/*
 !src/chroot-aalbus
 !src/ngtc_env.sh
 !src/ngtc_start.sh
+!src/aalbus-config-llvm.sh
+!src/perl-config
 
 # ...even if they are in subdirectories
 !*/ 

@@ -16,13 +16,15 @@ The base system distribution in this repo will not be committed to or built with
 
 
 # Components
-As a warning for future users: This Linux distribution is built with alternative libraries, which means that it is source-compatible with most open source programs but not binary-compatible with GNU/Linux. You will thus most likely never be able to run closed source binaries intended for GNU/Linux on this OS. All sources (including modifications) used for this base system are present as forked repositories under the Aalbus-Linux organization. 
+As a warning for future users: This Linux distribution is built with alternative libraries, which means that it is source-compatible with most open source programs but not binary-compatible with GNU/Linux. You will thus most likely never be able to run closed source binaries intended for GNU/Linux on this OS. All sources (including modifications) used to [bootstrap](https://github.com/Aalbus-linux/Aalbus/blob/main/src/bootstrap) this base system are present as forked repositories under the Aalbus-Linux organization. The continued development strategy from inside the Aalbus sustem has changed from following -git to use release tarballs for several components, mostly because of autotools dependencies in development sources. Details will be found under [/usr/local/scripts](https://github.com/Aalbus-linux/Aalbus/tree/main/dest/usr/local/scripts).
 
 ## Overview of components:
 Core component | Implementation | Built
 ------------ | ------------- | -------------
 Kernel: | [Linux](https://github.com/Aalbus-linux/linux) +[Filemon](https://github.com/Aalbus-linux/filemon-linux) (+ZFS?) | 
-Compiler: | bootstrap: [ngtc](https://github.com/Aalbus-linux/ngtc) final: [LLVM/Clang](https://github.com/Aalbus-linux/llvm-project) |  ✅ ✅
+C compiler: | bootstrap: [ngtc](https://github.com/Aalbus-linux/ngtc) final: [LLVM/Clang](https://github.com/Aalbus-linux/llvm-project) |  ✅ ✅
+C++ compiler: | bootstrap: [ngtc](https://github.com/Aalbus-linux/ngtc) final: [LLVM/Clang++](https://github.com/Aalbus-linux/llvm-project) |  ✅ ✅
+Fortran compiler: | [LLVM/Flang](https://github.com/Aalbus-linux/llvm-project) |  ✅
 YACC: | [byacc](https://github.com/Aalbus-linux/byacc-snapshots) | ✅ 
 LEX:  | [lex](https://github.com/Aalbus-linux/lex) |  ✅ 
 M4: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase)  | ✅
