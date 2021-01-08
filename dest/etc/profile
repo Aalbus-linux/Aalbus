@@ -11,12 +11,15 @@ export FC=flang
 
 #tools
 
-export LD=lld
+export LD=ld.lld
 export AR=llvm-ar
 export NM=llvm-nm
 export RANLIB=llvm-ranlib
 export GREP="ugrep -G"
 export EGREP="ugrep -E"
+export SED=sed
+export PAGER=most
+
 
 #flags and libraries
 
