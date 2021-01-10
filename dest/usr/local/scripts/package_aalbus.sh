@@ -1,6 +1,6 @@
 #!/bin/mksh
 
-bsdtar cvjf /usr/local/package_output/aalbus-amd64-musl-clang-`date +%d-%m-%Y`.tar.bz2 \
+bsdtar cvJf /usr/local/package_output/aalbus-amd64-musl-clang-`date +%d-%m-%Y`.tar.xz \
 --xattrs \
 --exclude="/root/*" \
 --exclude="/mnt/*" \
@@ -17,14 +17,13 @@ bsdtar cvjf /usr/local/package_output/aalbus-amd64-musl-clang-`date +%d-%m-%Y`.t
 --exclude="/usr/src/*" \
 --exclude="/var/cache/*" \
 --exclude="/var/obj/*" \
---exclude="/usr/pkg/*" \
+--exclude="/usr/pkg/pkg-distfiles" \
 --exclude="/etc/pkg/openssl/*" \
 --exclude="/etc/ssh/ssh_host_*" \
---exclude="/etc/resolv.conf" \
 --exclude="/usr/local/package_output/*" \
 /
 
-chmod 777 /usr/local/package_output/*.tar.bz2
+chmod 777 /usr/local/package_output/*.tar.xz
 
 
 

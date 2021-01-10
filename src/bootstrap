@@ -509,6 +509,8 @@ cd nbase
 PREFIX=/ SYSCONFDIR=/etc MANDIR=/usr/share/man  CFLAGS="-static -Wno-error $CFLAGS -DTM_YEAR_BASE=1900" LDFLAGS="-static $LDFLAGS -lfts -Wl,-Bstatic -lterminfo" MAKESYSPATH="/mnt/dest/usr/share/mk" LEX=flex mkcmake all
 PREFIX=/ DESTDIR=/mnt/dest SYSCONFDIR=/etc MANDIR=/usr/share/man mkcmake install
 
+#in chroot
+PREFIX=/ SYSCONFDIR=/etc MANDIR=/usr/share/man  MAN=man CFLAGS="-static -Wno-error $CFLAGS -DTM_YEAR_BASE=1900 -Dstrtoq=strtoll" LDFLAGS="-static $LDFLAGS -lfts -Wl,-Bstatic -lterminfo -" LEX=flex mkcmake all
 
 #### diffutils replacement?
 
@@ -715,5 +717,22 @@ gmake NO_REGEX=NeedsStartEnd AR=llvm-ar prefix='/usr' gitexecdir='/usr/lib/git-c
 
 # cmake
 # cmake bootstrap failed, so I first compiled using the new llvm 12 compiler but with cmake from within the Alpine docker image 
+Built cmake with cmake from docker image, then it was self-hosting.
 
+## neovim
+## vis crashed and got core dumps. vis also had a namespace conflict with a utility in nbase
+# as backup, the standard nvi has been built/installed
+# switch to neovim.
+# dependencies that had to be built: msgpack-c, libuv, libluv, unibilium, libvterm, (lpeg), libmpack, lua-mpack, bitlib
+#bitlib not supported by lua 5.4. bit should be included. Add Arch linux .so patch to lua and rebuild. Symlink liblua.so to bit.so
+lua:
+make MYCFLAGS="$CFLAGS -fPIC" MYLDFLAGS="$LDFLAGS -lterminfo" CC=clang INSTALL_TOP=/usr INSTALL_MAN=/usr/share/man/man1 linux-readline
+luv
+cmake -GNinja -DWITH_SHARED_LIBUV=ON -DLUA_BUILD_TYPE=System -DBUILD_MODULE=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/usr -DWITH_LUA_ENGINE=Lua .
+msgpack
+cmake -DMSGPACK_CXX[11|17]=ON -DCMAKE_INSTALL_PREFIX=/usr .
+neovim:
+cmake -Hneovim-0.4.4 -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DPREFER_LUA=ON -DLUA_INCLUDE_DIR=/usr/include -DLUA_CPATH=/usr/lib/lua/5.4 .
+# ... and lua 5.1 needed... give up here and go for regular vim.
 
+./configure --prefix=/usr --sysconfdir=/etc --with-lua-prefix=/usr --with-compiledby="Aalbus Linux" --disable-gui

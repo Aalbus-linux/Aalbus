@@ -1,0 +1,8 @@
+#!/bin/mksh
+
+export SHELL=/bin/mksh
+
+source /etc/profile
+
+
+

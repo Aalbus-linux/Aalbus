@@ -1,0 +1,37 @@
+
+########### ignore annoying dependencies #########
+TOOLS_IGNORE.groff=		yes			#we use neatroff
+TOOLS_IGNORE.gettext-tools=	yes			#we use gettext-tiny
+TOOLS_IGNORE.gettext-lib=	yes			#we use gettext-tiny
+TOOLS_IGNORE.libtool-base=	yes			#we use slibtool
+TOOLS_IGNORE.coreutils=		yes			#we have a custom unix-like userland
+TOOLS_IGNORE.bison=		yes			#we want to use byacc
+TOOLS_IGNORE.gtexinfo=		yes
+
+############ set use native ####################
+BUILTIN_PKG+=	curses iconv libiconv gettext gettext-lib
+
+IS_BUILTIN.coreutils=		yes
+BUILTIN_VERSION.coreutils=	9.99
+
+IS_BUILTIN.openssl=		yes
+USE_BUILTIN.openssl=		yes
+USE_BUILTIN.iconv=		yes
+USE_BUILTIN.gettext=		yes
+IS_BUILTIN.pthread=		yes
+
+BUILTIN_PKG.curses=             yes
+IS_BUILTIN.curses=              yes
+USE_BUILTIN.curses=             yes
+HAVE_HEADER.curses_h=           1
+
+CHECK_BUILTIN.gettext=          yes
+IS_BUILTIN.gettext=             yes
+
+BUILTIN_VERSION.iconv=          1.9.9
+BUILTIN_PKG.iconv=              libiconv-1.9.9
+IS_BUILTIN.iconv=               yes
+BUILTIN_LIB_FOUND.iconv=        yes
+
+CURSES_BUILDLINK3_MK=           no
+

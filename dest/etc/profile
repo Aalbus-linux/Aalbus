@@ -1,7 +1,7 @@
-#!/bin/mksh
+#!/bin/sh
 
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin
-export SHELL=/bin/mksh
+export PATH=/usr/pkg/bin:/usr/bin:/bin:/usr/pkg/sbin:/usr/sbin:/sbin
+export MANPATH=/usr/pkg/man:/usr/share/man
 
 #compilers
 
@@ -38,19 +38,4 @@ export HOST=x86_64-pc-linux-musl
 # netbsd-curses
 TERM=vt100
 TERMCAP=vt100-w
-# ugrep
-# alias uq     = '/usr/bin/ug -Q'
-# alias ux     = '/usr/bin/ug -UX
-# alias uz     = '/usr/bin/ug -z'
-# alias grep   = '/usr/bin/ugrep -G'
-# alias egrep  = '/usr/bin/ugrep -E'
-# alias fgrep  = '/usr/bin/ugrep -F'
-# alias pgrep  = '/usr/bin/ugrep -P'
-# alias xgrep  = '/usr/bin/ugrep -UX'
-# alias zgrep  = '/usr/bin/ugrep -zG'
-# alias zegrep = '/usr/bin/ugrep -zE'
-# alias zfgrep = '/usr/bin/ugrep -zF'
-# alias zpgrep = '/usr/bin/ugrep -zP'
-# alias zxgrep = '/usr/bin/ugrep -zUX'
-# alias xdump  = '/usr/bin/ugrep -X ""'
 

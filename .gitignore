@@ -11,7 +11,14 @@ src/*
 !dest/etc/passwd
 !dest/etc/profile
 !dest/etc/os-release
+!dest/etc/lsb-release
+!dest/etc/mkshrc
+!dest/usr/bin/grep
+!dest/usr/bin/egrep
+!dest/usr/bin/fgrep
+!dest/usr/bin/pgrep
 !dest/usr/local/scripts/*
+!dest/usr/pkg/etc/mk.*
 !src/bootstrap
 !src/chroot-aalbus
 !src/ngtc_env.sh
