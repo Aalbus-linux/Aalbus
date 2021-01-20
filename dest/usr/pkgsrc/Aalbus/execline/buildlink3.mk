@@ -6,7 +6,7 @@ BUILDLINK_TREE+=	execline
 EXECLINE_BUILDLINK3_MK:=
 
 BUILDLINK_API_DEPENDS.execline+=	execline>=2.2.0.0
-BUILDLINK_PKGSRCDIR.execline?=		../../wip/execline
+BUILDLINK_PKGSRCDIR.execline?=		../../Aalbus/execline
 
 .include "../../devel/skalibs/buildlink3.mk"
 .endif # EXECLINE_BUILDLINK3_MK

@@ -1,6 +1,6 @@
 $NetBSD$
 
-SHA1 (s6-rc-0.5.1.1.tar.gz) = 896511d64dabeaf9f6e9338a69626e3af566f2d9
-RMD160 (s6-rc-0.5.1.1.tar.gz) = 77ac7739adb865e23d4a9514015835de1bd3a2ff
-SHA512 (s6-rc-0.5.1.1.tar.gz) = 88e6ad4f09501eda231e3bbac58e9dafc925ff4b2c2a845c9796f3c1519834901f0126d751705b00ecd71173e208085bd68c5ae221a7074da8254d2b71e8a772
-Size (s6-rc-0.5.1.1.tar.gz) = 97648 bytes
+SHA1 (s6-rc-0.5.2.1.tar.gz) = b22d57d8dfd70bf8286d3eec0f38fb34b0da26dd
+RMD160 (s6-rc-0.5.2.1.tar.gz) = 9241f16f14b655c11918079ea5c75754e48e24b4
+SHA512 (s6-rc-0.5.2.1.tar.gz) = 0cbd48e79b7f0e24528b6dda1df6980ca3dcebca7aecf408ad69490aacced4a425b5bcdb1a68b5bfa46199b7a05364a80158db5722cd6506d8d833da125c1fec
+Size (s6-rc-0.5.2.1.tar.gz) = 98184 bytes

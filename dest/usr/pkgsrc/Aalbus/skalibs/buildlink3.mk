@@ -6,7 +6,7 @@ BUILDLINK_TREE+=	skalibs
 SKALIBS_BUILDLINK3_MK:=
 
 BUILDLINK_API_DEPENDS.skalibs+=		skalibs>=2.6.0.0
-BUILDLINK_PKGSRCDIR.skalibs?=		../../devel/skalibs
+BUILDLINK_PKGSRCDIR.skalibs?=		../../Aalbus/skalibs
 
 .endif # SKALIBS_BUILDLINK3_MK
 

@@ -4,7 +4,4 @@ bin/utmps-wtmpd
 include/utmps/config.h
 include/utmps/utmps.h
 include/utmps/utmpx.h
-include/utmpx.h
 lib/utmps/libutmps.a
-@pkgdir lib/utmps
-@pkgdir lib

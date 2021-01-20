@@ -1,6 +1,6 @@
 $NetBSD$
 
-SHA1 (utmps-0.0.3.1.tar.gz) = f358ee0b76ec9f67d0b91978b909d16888e1eb5b
-RMD160 (utmps-0.0.3.1.tar.gz) = 144f4d515dd9852a07271994c98c4cbb7e181555
-SHA512 (utmps-0.0.3.1.tar.gz) = 30ad442d3dc4d8961b759361412b32903d6a0c9421d94e8fec2dd529dc63e0e551444be4c9b3a5f9eb8fcc6cbd2950f7c0bb0d6c5eda92b9278598dd2e4264b6
-Size (utmps-0.0.3.1.tar.gz) = 25228 bytes
+SHA1 (utmps-0.1.0.0.tar.gz) = 47bf4773cbffdae695bc4ad2ec87e6545fef1b34
+RMD160 (utmps-0.1.0.0.tar.gz) = ee107b5a4bc4af984673f20b0dd309b161105a6c
+SHA512 (utmps-0.1.0.0.tar.gz) = f8d246897690829fccc6e4a4e1bfbbbacd10d337863dacb6966f62cffc166d61c49db1ac83d51aa023e571a5d62f81cf030fa439eb8e3fe742e427764f18adcf
+Size (utmps-0.1.0.0.tar.gz) = 25722 bytes

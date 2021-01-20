@@ -2,7 +2,6 @@
 bin/blkdiscard
 bin/chvt
 bin/ctrlaltdel
-bin/dd
 bin/df
 bin/dmesg
 bin/eject
@@ -13,7 +12,6 @@ bin/fsfreeze
 bin/getty
 bin/halt
 bin/hwclock
-bin/id
 bin/insmod
 bin/killall5
 bin/last
@@ -49,13 +47,11 @@ bin/vtallow
 bin/watch
 bin/who
 share/man/man1/chvt.1
-share/man/man1/dd.1
 share/man/man1/df.1
 share/man/man1/dmesg.1
 share/man/man1/eject.1
 share/man/man1/fallocate.1
 share/man/man1/free.1
-share/man/man1/id.1
 share/man/man1/mesg.1
 share/man/man1/mknod.1
 share/man/man1/mountpoint.1

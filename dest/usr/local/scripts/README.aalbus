@@ -2,24 +2,14 @@ In this directory there will be a collection of notes and scripts for (re-)build
 from within Aalbus. The original plan to follow -git on most packages as was done during the
 original bootstrap has been scrapped.
 
-A major problem with that strategy is that a lot of packages rely on autotools.
 
-Now the general idea is to build the system on release tarballs (package-specific scripts
-and patches end up here + sub folders).
+Now the general idea is to build the system using pkgsrc (see /usr/pkgsrc).
 
-We can still follow -git for some of our core packages, for example
+We can still follow -git for some of our core packages that are difficult to package at the moment, 
+for example
 
 llvm-project
 https://github.com/llvm/llvm-project
-
-musl
-git://git.musl-libc.org/musl
-
-nbase
-https://github.com/cheusov/nbase
-
-ubase
-git://git.suckless.org/ubase
 
 The Aalbus forks (especially llvm-project with ngtc patches) will be abandoned in favor of upstream.
 If heavy patching is needed, however, those patches will be documented in the Aalbus forks.
@@ -27,5 +17,4 @@ If heavy patching is needed, however, those patches will be documented in the Aa
 Originally, there was no plan for a package manager but that has changed to use pkgsrc as default.
 Future aims might be to shrink the base system and move as many packages as possible into the pkgsrc
 package management system.
-This will only be done if the packages can be built without pulling in too many  other dependencies.
 

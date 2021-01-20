@@ -1,6 +1,6 @@
 $NetBSD$
 
-SHA1 (s6-networking-2.3.1.1.tar.gz) = 838ab722e5622be6b8687a1814738e19d8849a5d
-RMD160 (s6-networking-2.3.1.1.tar.gz) = 9ceb2badfcb41b1897e713246a416c439fe7a26a
-SHA512 (s6-networking-2.3.1.1.tar.gz) = 3bd7cdbf6f105bb83c5116e736f4288d378571467e7aa93f862eba80ce28255bda77140a2a1cf80af80480789dfb38682049f6769952fb8964b860bdf465551b
-Size (s6-networking-2.3.1.1.tar.gz) = 87461 bytes
+SHA1 (s6-networking-2.4.0.0.tar.gz) = 7b013b0181d5873555bbaead902533429db207ae
+RMD160 (s6-networking-2.4.0.0.tar.gz) = 21fd26cff9868096d297b415f74e799da3db10ab
+SHA512 (s6-networking-2.4.0.0.tar.gz) = e8646bbfe965db0a736b1624e3533151182fd0d0337c08ab6af52f6872af1e8c82e3afa85fd146fec3f0640360173aa57182065982e1f3d60ec16862f449115b
+Size (s6-networking-2.4.0.0.tar.gz) = 102302 bytes

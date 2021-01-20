@@ -15,7 +15,6 @@ src/*
 !dest/etc/mkshrc
 !dest/etc/mk.conf
 !dest/etc/mk.d/*
-!dest/usr/bin/grep
 !dest/usr/bin/egrep
 !dest/usr/bin/fgrep
 !dest/usr/bin/pgrep

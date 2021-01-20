@@ -2,9 +2,10 @@
 TOOLS_PLATFORM.env=		/usr/bin/sbase/env 		#nbase variants not working
 TOOLS_PLATFORM.uniq=		/usr/bin/sbase/uniq		#nbase variants not working
 TOOLS_PLATFPRM.tr=		/usr/bin/sbase/tr		#nbase variants not working
-TOOLS_PLATFORM.test=		/usr/bin/sbase/test
+#TOOLS_PLATFORM.test=		/usr/bin/sbase/test
 TOOLS_PLATFORM.pkg-config=	/usr/bin/pkgconf
 TOOLS_PLATFORM.gmake=		/usr/bin/gmake
+TOOLS_PLATFORM.m4=		/usr/gnu/bin/m4
 
 ########### ignore annoying dependencies #########
 TOOLS_IGNORE.groff=		yes			#we use neatroff

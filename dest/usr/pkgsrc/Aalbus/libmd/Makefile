@@ -1,9 +1,9 @@
 # $NetBSD: Makefile,v 1.1 2013/01/03 21:11:34 mrampke Exp $
 
-DISTNAME=	libmd-1.0.1
+DISTNAME=	libmd-1.0.3
 EXTRACT_SUFX=	.tar.xz
 NO_CHECKSUM=	yes
-MASTER_SITES=	http://libbsd.freedesktop.org/releases/
+MASTER_SITES=	https://archive.hadrons.org/software/libmd/
 
 CATEGORIES=	devel
 
@@ -19,5 +19,10 @@ GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
 
 WRKSRC=		${WRKDIR}/${DISTNAME}
+
+#remove conflicst with skey
+post-install:
+	                rm ${DESTDIR}${PREFIX}/include/rmd160.h
+			rm $(DESTDIR)$(PREFIX)/include/sha1.h
 
 .include "../../mk/bsd.pkg.mk"

@@ -13,11 +13,10 @@ bsdtar cvJf /usr/local/package_output/aalbus-amd64-musl-clang-`date +%d-%m-%Y`.t
 --exclude="/lib/*" \
 --exclude="/usr/man/*" \
 --exclude="/usr/etc/*" \
---exclude="/usr/pkgsrc/*" \
 --exclude="/usr/src/*" \
 --exclude="/var/cache/*" \
 --exclude="/var/obj/*" \
---exclude="/usr/pkg/pkg-distfiles" \
+--exclude="/usr/pkg/pkg-distfiles/*" \
 --exclude="/etc/pkg/openssl/*" \
 --exclude="/etc/ssh/ssh_host_*" \
 --exclude="/usr/local/package_output/*" \

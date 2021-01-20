@@ -2,9 +2,11 @@
 include/skalibs/alarm.h
 include/skalibs/alloc.h
 include/skalibs/allreadwrite.h
+include/skalibs/ancil.h
 include/skalibs/avlnode.h
 include/skalibs/avltree.h
 include/skalibs/avltreen.h
+include/skalibs/bigkv.h
 include/skalibs/biguint.h
 include/skalibs/bitarray.h
 include/skalibs/bsdsnowflake.h
@@ -26,6 +28,7 @@ include/skalibs/env.h
 include/skalibs/envalloc.h
 include/skalibs/environ.h
 include/skalibs/error.h
+include/skalibs/exec.h
 include/skalibs/fmtscan.h
 include/skalibs/functypes.h
 include/skalibs/gccattributes.h
@@ -80,11 +83,6 @@ include/skalibs/unix-transactional.h
 include/skalibs/unixconnection.h
 include/skalibs/unixmessage.h
 include/skalibs/unixonacid.h
-include/skalibs/webipc.h
-lib/libskarnet.so
-lib/libskarnet.so.2.9
-lib/libskarnet.so.2.9.1
-lib/libskarnet.so.2.9.1.0
 lib/skalibs/libskarnet.a
 lib/skalibs/sysdeps/socket.lib
 lib/skalibs/sysdeps/spawn.lib
@@ -93,4 +91,3 @@ lib/skalibs/sysdeps/sysdeps
 lib/skalibs/sysdeps/target
 lib/skalibs/sysdeps/timer.lib
 lib/skalibs/sysdeps/util.lib
-@pkgdir include

@@ -25,10 +25,14 @@ pre-configure:
 		cp ./files/* ${WRKDIR}/ubase/
 
 
-#remove files that conflict with shadow and netbsd-curses
+#remove files that conflict with shadow, netbsd-curses and nbase
 post-install:
 		rm ${DESTDIR}${PREFIX}/bin/lastlog
 		rm ${DESTDIR}${PREFIX}/bin/passwd
+		rm $(DESTDIR)$(PREFIX)/bin/dd
+		rm $(DESTDIR)$(PREFIX)/bin/id
+		rm $(DESTDIR)$(PREFIX)/share/man/man1/dd.1
+		rm $(DESTDIR)$(PREFIX)/share/man/man1/id.1
 		rm ${DESTDIR}${PREFIX}/share/man/man1/login.1
 		rm ${DESTDIR}${PREFIX}/share/man/man1/passwd.1
 		rm ${DESTDIR}${PREFIX}/share/man/man1/su.1

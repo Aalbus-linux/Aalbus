@@ -14,11 +14,12 @@ LICENSE=	2-clause-bsd
 WRKSRC=		${WRKDIR}/${PKGNAME}
 
 USE_TOOLS+=             gmake
-HAS_CONFIGURE=          yes
+GNU_CONFIGURE=          yes
 CONFIGURE_ARGS+=        --prefix=/usr
-CONFIGURE_ARGS+=        --syslibdir=/usr/lib
+CONFIGURE_ARGS+=	--disable-shared
+CONFIGURE_ARGS+=	--enable-static
 
-pre-configure:
-		cd ${WRKSRC} && ./bootstrap.sh
+#pre-configure:
+#	cd $(WRKSRC) && M4="/usr/gnu/bin/m4" ./bootstrap.sh
 
 .include "../../mk/bsd.pkg.mk"

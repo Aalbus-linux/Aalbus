@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	execline-2.5.3.0
+DISTNAME=	execline-2.7.0.0
 CATEGORIES=	devel
 MASTER_SITES=	http://skarnet.org/software/execline/
 
@@ -15,7 +15,8 @@ CONFIGURE_ARGS+=	--prefix=${PREFIX}
 CONFIGURE_ARGS+=	--with-sysdeps=${PREFIX}/lib/skalibs/sysdeps
 CONFIGURE_ARGS+=	--with-lib=${PREFIX}/lib/skalibs
 CONFIGURE_ARGS+=	--with-include=${PREFIX}/include
+CONFIGURE_ARGS+=	--disable-shared
 CFLAGS+=		-Wno-implicit-function-declaration
 
-.include "../../devel/skalibs/buildlink3.mk"
+.include "../../Aalbus/skalibs/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

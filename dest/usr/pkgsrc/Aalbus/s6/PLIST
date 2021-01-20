@@ -45,15 +45,18 @@ bin/s6-svdt-clear
 bin/s6-svlisten
 bin/s6-svlisten1
 bin/s6-svok
+bin/s6-svperms
 bin/s6-svscan
 bin/s6-svscanctl
 bin/s6-svstat
 bin/s6-svwait
 bin/s6-tai64n
 bin/s6-tai64nlocal
+bin/s6-usertree-maker
 bin/s6lockd
 bin/ucspilogd
 include/s6/accessrules.h
+include/s6/compat.h
 include/s6/config.h
 include/s6/ftrigr.h
 include/s6/ftrigw.h
@@ -63,7 +66,3 @@ include/s6/s6.h
 include/s6/s6lock.h
 lib/s6/libs6.a
 libexec/s6lockd-helper
-@pkgdir libexec
-@pkgdir lib/s6
-@pkgdir lib
-@pkgdir include
