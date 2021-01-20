@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.4 2020/02/19 22:37:38 cheusov Exp $
+
+SHA1 (nbase-7.0.0.10.tar.gz) = 078b4d6a2e794a3933b0da1549a914ebfd136edc
+RMD160 (nbase-7.0.0.10.tar.gz) = de3fa495cf23fe41d997ac67ea816d158f4757f7
+SHA512 (nbase-7.0.0.10.tar.gz) = 77f30c8acb5fcf607a164113b49492067173650fd8098cf3f5ecd9b003cec91b37b2a13652ce129ff80e1df12a5e8ad9e1441b67c07ae8801b554d1d1584688a
+Size (nbase-7.0.0.10.tar.gz) = 2483820 bytes

@@ -13,12 +13,14 @@ src/*
 !dest/etc/os-release
 !dest/etc/lsb-release
 !dest/etc/mkshrc
+!dest/etc/mk.conf
+!dest/etc/mk.d/*
 !dest/usr/bin/grep
 !dest/usr/bin/egrep
 !dest/usr/bin/fgrep
 !dest/usr/bin/pgrep
 !dest/usr/local/scripts/*
-!dest/usr/pkg/etc/mk.*
+!dest/usr/pkgsrc/Aalbus/*
 !src/bootstrap
 !src/chroot-aalbus
 !src/ngtc_env.sh

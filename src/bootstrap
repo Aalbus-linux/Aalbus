@@ -736,3 +736,17 @@ cmake -Hneovim-0.4.4 -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_
 # ... and lua 5.1 needed... give up here and go for regular vim.
 
 ./configure --prefix=/usr --sysconfdir=/etc --with-lua-prefix=/usr --with-compiledby="Aalbus Linux" --disable-gui
+
+# bootsrapping pkgsrc: edit bootstrap script to use an alternative config.mk, disable cwrappers (pulls in coreutils et al).
+
+# Merged /bin with /usr/bin and /sbin with /usr/sbin. Several configure scripts hard code the path to different utilities.
+# Standardize on netbsd grep instead of ugrep for regular grep. It seems capable enough, ugrep used for egrep and fgrep and pgrep.
+
+#e2fstools
+CFLAGS="$CFLAGS -D_GNU_SOURCE -D__NEED_mode_t -D__NEED_dev_t" ./configure --prefix=/usr --sysconfdir=/etc --disable-nls
+ckati
+#copy config/install-sh several times to different sub directories...
+ckati install
+
+
+

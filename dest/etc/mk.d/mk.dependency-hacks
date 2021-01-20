@@ -1,0 +1,42 @@
+########### use alternative utils ###############
+TOOLS_PLATFORM.env=		/usr/bin/sbase/env 		#nbase variants not working
+TOOLS_PLATFORM.uniq=		/usr/bin/sbase/uniq		#nbase variants not working
+TOOLS_PLATFPRM.tr=		/usr/bin/sbase/tr		#nbase variants not working
+TOOLS_PLATFORM.test=		/usr/bin/sbase/test
+TOOLS_PLATFORM.pkg-config=	/usr/bin/pkgconf
+TOOLS_PLATFORM.gmake=		/usr/bin/gmake
+
+########### ignore annoying dependencies #########
+TOOLS_IGNORE.groff=		yes			#we use neatroff
+TOOLS_IGNORE.coreutils=		yes			#we have a custom unix-like userland
+TOOLS_IGNORE.bison=		yes			#we want to use byacc
+
+IGNORE_GFORTRAN=		yes
+
+############ set use native ####################
+BUILTIN_PKG+=	curses iconv libiconv
+
+IS_BUILTIN.coreutils=		yes
+USE_BUILTIN.coreutils=		yes
+BUILTIN_VERSION.coreutils=	9.99
+
+USE_BUILTIN.iconv=		yes
+IS_BUILTIN.pthread=		yes
+
+BUILTIN_PKG.curses=             yes
+IS_BUILTIN.curses=              yes
+USE_BUILTIN.curses=             yes
+HAVE_HEADER.curses_h=           1
+
+BUILTIN_PKG.termcap=		yes
+IS_BUILTIN.termcap=		yes
+USE_BUILTIN.termcap=		yes
+BUILTIN_LIBNAME.termcap=	terminfo
+
+BUILTIN_VERSION.iconv=          1.9.9
+BUILTIN_PKG.iconv=              libiconv-1.9.9
+IS_BUILTIN.iconv=               yes
+BUILTIN_LIB_FOUND.iconv=        yes
+
+CURSES_BUILDLINK3_MK=           no
+

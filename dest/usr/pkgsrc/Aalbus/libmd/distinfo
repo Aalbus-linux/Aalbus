@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.1 2013/01/03 21:11:34 mrampke Exp $
+
+SHA1 (libmd-1.0.1.tar.xz) = 6b2981171ad37fe439eb7b09eade37a9079593f5
+RMD160 (libmd-1.0.1.tar.xz) = 0067fbe7cbb8b35d45dd891db86922ac90680122
+SHA512 (libmd-1.0.1.tar.xz) = 6f343101f9ad8f927d862e6bae948d35ba596ecfd375c255fefb86efc621cf6e9de3597770ad66e0a48e8f4ea018df78debb571ea6746a7457d8900fec87069b
+Size (libmd-1.0.1.tar.xz) = 257372 bytes

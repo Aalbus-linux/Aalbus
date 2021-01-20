@@ -1,0 +1,6 @@
+@comment $NetBSD$
+bin/mdevd
+bin/mdevd-coldplug
+include/mdevd/config.h
+@pkgdir include/mdevd
+@pkgdir include

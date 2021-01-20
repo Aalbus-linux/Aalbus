@@ -1,0 +1,4 @@
+libnl-tiny is a tiny replacement for libnl versions 1 and 2
+
+it was originally developed by openwrt and can be found in their
+trunk repo in the path package/lib/libnl-tiny.

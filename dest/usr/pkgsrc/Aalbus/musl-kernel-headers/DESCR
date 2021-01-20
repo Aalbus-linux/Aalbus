@@ -1,0 +1,9 @@
+sabotage's linux kernel headers
+
+linux headers are often broken for userspace, and downloading the entire kernel tarball just to get the headers is overkill.
+
+thus we provide our own copy for the archs supported by sabotage.
+
+some minor issues are fixed, plus libc-compat.h is patched to offer the same level of support for musl libc as the vanilla headers offer for glibc.
+
+

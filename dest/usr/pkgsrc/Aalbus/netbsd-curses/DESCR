@@ -1,0 +1,5 @@
+this is a port of netbsd's curses library for usage on Linux systems (tested and developed on sabotage linux, based on musl libc). It should be possible to use on other POSIX platforms as well with minor changes.
+
+it supports widechar (like the ncursesw build variant) and is close to being a 100% feature-complete drop-in replacement for ncurses.
+
+

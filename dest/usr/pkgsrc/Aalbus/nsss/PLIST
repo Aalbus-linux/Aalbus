@@ -1,0 +1,30 @@
+@comment $NetBSD$
+bin/nsssd-nslcd
+bin/nsssd-unix
+include/grp.h
+include/nsss/config.h
+include/nsss/grp-all.h
+include/nsss/grp-def.h
+include/nsss/grp-switch.h
+include/nsss/grp-unix.h
+include/nsss/grp.h
+include/nsss/nsss-all.h
+include/nsss/nsss-switch.h
+include/nsss/nsss-unix.h
+include/nsss/nsss.h
+include/nsss/nsssd.h
+include/nsss/pwd-all.h
+include/nsss/pwd-def.h
+include/nsss/pwd-switch.h
+include/nsss/pwd-unix.h
+include/nsss/pwd.h
+include/nsss/shadow-all.h
+include/nsss/shadow-def.h
+include/nsss/shadow-switch.h
+include/nsss/shadow-unix.h
+include/nsss/shadow.h
+include/pwd.h
+include/shadow.h
+lib/nsss/libnsss.a
+lib/nsss/libnsssd.a
+@pkgdir lib

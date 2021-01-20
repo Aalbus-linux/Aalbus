@@ -1,0 +1,24 @@
+# Package options
+
+######### General ##########
+FIX_SYSTEM_HEADERS=	yes
+
+CURSES_DEFAULT=         ncurses		#we are using netbsd-curses
+CURSES_TYPE=		curses
+READLINE_TYPE=		editline
+READLINE_DEFAULT=	editline
+PTHREAD_TYPE=		native
+PREFER_NATIVE_PTHREADS=	yes
+
+X11_TYPE=		modular
+
+######### Specific ##########
+NBPAX_PROGRAM_PREFIX=	
+HLROOT=			
+MANDIR=			/usr/pkg/man
+
+PKG_OPTIONS.libfetch=   inet6 openssl
+PKG_OPTIONS.xz=		-nls
+PKG_OPTIONS.openssl=	zlib
+PKG_OPTIONS.libslang2=	pcre
+

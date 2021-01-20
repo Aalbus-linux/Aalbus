@@ -1,0 +1,19 @@
+===
+libdrpc
+===
+What is it?
+This is a port of Android librpc to more regular libc versions 
+(should build with musl, uclibc, or (e)glibc; klibc and dietlibc might work).
+It needs <linux/poll.h> for POLLRDHUP; at this point musl does not define 
+this macro under any condition, and Android <poll.h> uses <linux/poll.h>.
+
+partwake.c, which is not built, contains partial wakelock support.
+If you want this, you will need to port libpower.
+
+Why?
+The standard solution for RPC outside libc, libtirpc, really isn't:
+it expects several headers in rpcsvc/ that it doesn't provide, and needs NIS.
+The build system is enough of a maze that it was faster to port librpc from 
+Android than to fish the proper code out of glibc and patch it into libtirpc.
+
+

@@ -1,7 +1,8 @@
 #!/bin/sh
 
-export PATH=/usr/pkg/bin:/usr/bin:/bin:/usr/pkg/sbin:/usr/sbin:/sbin
-export MANPATH=/usr/pkg/man:/usr/share/man
+export PATH=/usr/bin:/usr/sbin
+export MANPATH=/usr/share/man
+export LD_LIBRARY_PATH=/usr/lib
 
 #compilers
 
@@ -15,11 +16,11 @@ export LD=ld.lld
 export AR=llvm-ar
 export NM=llvm-nm
 export RANLIB=llvm-ranlib
-export GREP="ugrep -G"
+export GREP=grep
 export EGREP="ugrep -E"
+export FGREP="ugrep -F"
 export SED=sed
 export PAGER=most
-
 
 #flags and libraries
 
@@ -33,9 +34,24 @@ export FLIBS=
 export FCLIBS="$FLIBS"
 export LDFLAGS="-fuse-ld=lld -rtlib=compiler-rt -unwindlib=libunwind -Wl,-O2 -Wl,--as-needed"
 export HOST=x86_64-pc-linux-musl
+export CHOST=$HOST
+
+#security stuff
+
+export SSLBASE=/usr
+export SSLCERTS=/etc/openssl/certs
+export SSLDIR=/etc/openssl
+export SSLKEYS=/etc/openssl/private
+
+# set CVS remote shell command for pkgsrc
+export CVSROOT="anoncvs@anoncvs.NetBSD.org:/cvsroot"
+CVS_RSH=ssh
+export CVS_RSH
+
 
 #compatibility stuff
 # netbsd-curses
 TERM=vt100
 TERMCAP=vt100-w
+
 

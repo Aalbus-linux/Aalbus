@@ -1,0 +1,11 @@
+@comment $NetBSD$
+bin/gencat
+bin/getconf
+bin/getent
+bin/ldconfig
+include/stab.h
+include/sys/cdefs.h
+include/sys/queue.h
+include/sys/tree.h
+include/xlocale.h
+@pkgdir lib

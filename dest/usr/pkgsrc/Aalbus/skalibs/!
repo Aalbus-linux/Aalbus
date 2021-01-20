@@ -1,0 +1,28 @@
+#Settings related to the compiler in pkgsrc
+
+
+MKGCC=			no
+MKLLVM=			yes
+HAVE_LLVM=		yes
+PKGSRC_COMPILER=        clang
+PKG_CC=                 clang
+PKG_CXX=                clang++
+CLANGBASE=              /usr
+
+
+DBG=                    # prevent DBG from adding default optimizer flags
+CFLAGS+=                -O2 -I/usr/include/nsss -I/usr/include/skalibs
+CFLAGS+=		-I/usr/include/sasl -D__STDC_ISO_10646__=201103L -D_BSD_SOURCE -DSIZE_FMT=21 -DUINT_FMT=11
+CFLAGS+=		-I/usr/lib/perl5/5.30.0/x86_64-linux-thread-multi/CORE
+CXXFLAGS+=		-O2 -I/usr/include/nsss -I/usr/include/skalibs
+
+LDFLAGS+=               -L/usr/lib/nsss -L/usr/lib/skalibs
+LDFLAGS+=		-L/usr/lib/sasl2
+LDFLAGS+=		-lnsss -lskarnet -lsasl2 -lcurses -lterminfo
+PKGSRC_MKPIE=           yes
+
+GCC_USE_NATIVE=		yes
+USE_BUILTIN.dl=         yes
+
+BUILDLINK_PREFIX.perl	=/usr
+

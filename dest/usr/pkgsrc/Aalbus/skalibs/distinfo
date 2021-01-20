@@ -1,0 +1,7 @@
+$NetBSD: distinfo,v 1.4 2019/06/20 00:56:58 schmonz Exp $
+
+SHA1 (skalibs-2.9.1.0.tar.gz) = 1383fba2eda9fd8f9a4da6f3e1bafb16a653a1c9
+RMD160 (skalibs-2.9.1.0.tar.gz) = 255a9abd95fbf682a9806e9997c476766bde3d93
+SHA512 (skalibs-2.9.1.0.tar.gz) = a85a9397cdb10cbc42fd7ef4984a77802cf8c42abeabc8ff18de6d2e11ff97d950418aeda5f2dd66a04bd30004a5c4608e7cc6f4c7e23b91f56ef1ff59f4b6d5
+Size (skalibs-2.9.1.0.tar.gz) = 229792 bytes
+SHA1 (patch-configure) = af618b209224dd5d459e1be7104cb4a142375f05

@@ -1,0 +1,18 @@
+diff -ru cvs-orig/lib/getline.c cvs-1.11.23//lib/getline.c
+--- cvs-orig/lib/getline.c	Sun Nov 10 05:48:30 2019
++++ cvs-1.11.23//lib/getline.c	Sun Nov 10 05:38:27 2019
+@@ -154,14 +154,6 @@
+   return ret;
+ }
+ 
+-int
+-getline (lineptr, n, stream)
+-     char **lineptr;
+-     size_t *n;
+-     FILE *stream;
+-{
+-  return getstr (lineptr, n, stream, '\n', 0, GETLINE_NO_LIMIT);
+-}
+ 
+ int
+ getline_safe (lineptr, n, stream, limit)
