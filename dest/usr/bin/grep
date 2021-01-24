@@ -1,5 +1,0 @@
-#!/bin/mksh
-
-exec /usr/bin/ugrep -G $*
-
-

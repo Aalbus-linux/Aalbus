@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.4 2019/06/20 00:56:58 schmonz Exp $
+
+SHA1 (syslinux-6.04-pre1.tar.gz) = 9f4d3dc82b52ed6d227f2f65f90399621ada97b9
+RMD160 (syslinux-6.04-pre1.tar.gz) = 1a3b97cbb350ff98cca9d2ab498e00f0bd991c8a
+SHA512 (syslinux-6.04-pre1.tar.gz) = 30dc9ad2df29dcc3186b2e0fad8c8e28794543dcf7e6640fda9fb2bdc7717aac6b2c3b2719048a9e3fa25711b2688531b03e17247510de764b46158dd4bd3400
+Size (syslinux-6.04-pre1.tar.gz) = 9406628 bytes

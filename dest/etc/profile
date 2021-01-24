@@ -16,6 +16,7 @@ export LD=ld.lld
 export AR=llvm-ar
 export NM=llvm-nm
 export RANLIB=llvm-ranlib
+export STRIP=llvm-strip
 export GREP=grep
 export EGREP="ugrep -E"
 export FGREP="ugrep -F"

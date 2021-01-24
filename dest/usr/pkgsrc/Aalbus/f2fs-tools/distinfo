@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.24 2017/12/08 08:12:58 adam Exp $
+
+SHA1 (f2fs-tools-1.14.0.tar.gz) = 33cab82da464a393a1f91d7871fa4a0b828d9fb1
+RMD160 (f2fs-tools-1.14.0.tar.gz) = 9fa6f1a7f783f8f6fc8e1e3e82dc8f0491b8c8e4
+SHA512 (f2fs-tools-1.14.0.tar.gz) = 951b74178f99722550e73f331be066f124f6ee6022710f6b47ae47390b978b08f12a7f2a268d82ca69a32bf440cd3ce3adddc8a4c49c32df83da87e7f659f98d
+Size (f2fs-tools-1.14.0.tar.gz) = 371225 bytes

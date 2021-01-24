@@ -1,0 +1,21 @@
+$NetBSD: distinfo,v 1.24 2017/12/08 08:12:58 adam Exp $
+
+SHA1 (e2fsprogs-1.45.4.tar.xz) = 4f2ac3a153c23d57968632e12c944eeb50613c51
+RMD160 (e2fsprogs-1.45.4.tar.xz) = 2b643556c4f85e84baa2bd6b16b151b988059319
+SHA512 (e2fsprogs-1.45.4.tar.xz) = 408f093a6674ef2316c451173481851041957617c550308d2969b983e11d988ddfc120626cd957c0759648bc357edf1d9971e6d46bed109c2af5f8a09bdc5bda
+Size (e2fsprogs-1.45.4.tar.xz) = 5567164 bytes
+SHA1 (patch-ab) = 9b686655a75239279a456dc8889113be06519cd7
+SHA1 (patch-ac) = 1a7faec14d69cb1d317908297e5500c0cb72aa4f
+SHA1 (patch-af) = bcda43bb14afdbf6a98dfedd949af4d1aff443d6
+SHA1 (patch-an) = 1199b17c4e65b8825b78fc02f7b2c9164eee56ef
+SHA1 (patch-ao) = a8fcacf506b003bf40ecadd5260ff0a6628ad2e6
+SHA1 (patch-as) = be316e404840a47422edbee65177bf6a9c94b335
+SHA1 (patch-aw) = d864c60c302230acdbdb1e33436883ad594c6808
+SHA1 (patch-debugfs_debugfs.c) = 085d29bc53e616dbeb08f4f48fd9d94e1d837e80
+SHA1 (patch-e2fsck_jfs__user.h) = 2fd21cedabc4356a0d76a6caa1dbf73461750800
+SHA1 (patch-lib_ext2fs_bitops.c) = 068cc0dfb6b2a6a185178479f20100917c7407c8
+SHA1 (patch-lib_ext2fs_bitops.h) = 8eec77c83bf85423a1420b18405e9ba655131528
+SHA1 (patch-lib_ext2fs_ext2fs.h) = 2811fd3eff03dd4fb7f72df4c854d2c33b37846f
+SHA1 (patch-lib_ext2fs_tdb.c) = dd50993cd0beba0451cfb3422ca9f54700ee0e38
+SHA1 (patch-lib_uuid_gen__uuid.c) = 083ac45a8d2d30a5c272720fb9a6a1785c97eee2
+SHA1 (patch-misc_create__inode.c) = b3a9f313ea7cb55d9a40c7916a7862472e0aeaa8

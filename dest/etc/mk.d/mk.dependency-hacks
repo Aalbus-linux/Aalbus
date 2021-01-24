@@ -6,11 +6,13 @@ TOOLS_PLATFPRM.tr=		/usr/bin/sbase/tr		#nbase variants not working
 TOOLS_PLATFORM.pkg-config=	/usr/bin/pkgconf
 TOOLS_PLATFORM.gmake=		/usr/bin/gmake
 TOOLS_PLATFORM.m4=		/usr/gnu/bin/m4
+TOOLS_PLATFORM.getopt=		/usr/bin/getopt			#nbase
 
 ########### ignore annoying dependencies #########
 TOOLS_IGNORE.groff=		yes			#we use neatroff
 TOOLS_IGNORE.coreutils=		yes			#we have a custom unix-like userland
 TOOLS_IGNORE.bison=		yes			#we want to use byacc
+TOOLS_IGNORE.getopt=		yes
 
 IGNORE_GFORTRAN=		yes
 
@@ -38,6 +40,9 @@ BUILTIN_VERSION.iconv=          1.9.9
 BUILTIN_PKG.iconv=              libiconv-1.9.9
 IS_BUILTIN.iconv=               yes
 BUILTIN_LIB_FOUND.iconv=        yes
+
+USE_BUILTIN.getopt=		yes
+IS_BUILTIN.getopt=		yes
 
 CURSES_BUILDLINK3_MK=           no
 

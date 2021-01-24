@@ -8,6 +8,8 @@ The development of this new OS initally got inspired by early work on a musl/cla
 
 The OS is not motivated by language or license fundamentalism or anti-GNU sentiments as such, but more a general desire to increase and explore the diversity in the Linux OS space, which often leads to selection of BSD and suckless alternative tools.
 
+# Contact and community
+As Aalbus matures, one of the aims is naturally to recruit other interested people and to evolve the OS from a personal hobby project to one that is managed by a community as a real distro. Discussion can currently be done on the [Github issue tracker](https://github.com/Aalbus-linux/Aalbus/issues), [Reddit](https://www.reddit.com/r/aalbuslinux/) or [Discord](https://discord.gg/8fg4uP3vgY). Welcome!
 
 # Aims
 Aalbus is an experimental base system which aims to be self-hosting and installable (I have not yet decided whether ZFS should be an option). The components of the base system are interesting (mostly) source-compatible alternative implementations of those typically found in a standard GNU/Linux distribution. Whenever possible, BSD utilities will be used.
@@ -66,9 +68,10 @@ Access contol list: | [acl](https://github.com/Aalbus-linux/acl) | ✅ | ✅
 Magic | [file](https://github.com/Aalbus-linux/file) | ✅ | ✅
 Shadow | [shadow](https://github.com/Aalbus-linux/shadow) | ✅ | ✅ 
 Bootloader | syslinux | |
-e2fs-tools | e2fstools | ✅ | 
+dosfstools | dosfstools | ✅ | ✅
+e2fs-tools | e2fstools | ✅ | ✅ 
 f2fs-tools | f2fs-tools | ✅ | 
-xfs-tools | xfs-tools | | 
+xfs-tools | xfs-tools | ✅ | ✅
 btrfs-tools | btrfs-tools | |
 zfs tools | zfs | |
 fdisk | gdisk | |
@@ -84,7 +87,7 @@ Package | Dependency | Built | migrated to pkgsrc
 ------------ | ------------- | ------------- | -------------
 LLVM | libexecinfo | ✅ | ✅
 most | [S-Lang](https://github.com/Aalbus-linux/S-Lang) | ✅ | ✅ 
-attr | [gettext-tiny](https://github.com/Aalbus-linux/gettext-tiny) | ✅ | <gettext> 
+attr | [gettext-tiny](https://github.com/Aalbus-linux/gettext-tiny) | ✅ | gettext 
 shadow | [libcap-ng](https://github.com/Aalbus-linux/libcap-ng) | ✅ |
 shadow | [skey](https://github.com/Aalbus-linux/skey) | ✅ | ✅ 
 s6-linux-init | [skalibs](https://github.com/Aalbus-linux/skalibs) | ✅ | ✅ 
@@ -94,7 +97,7 @@ s6-networking | [s6-dns](https://github.com/Aalbus-linux/s6-dns) | ✅ | ✅
 s6-linux-init | [execline](https://github.com/Aalbus-linux/execline) | ✅ | ✅ 
 s6-linux-init | [utpmps](https://github.com/Aalbus-linux/utmps) | ✅ | ✅
 : | [libbsd](https://github.com/Aalbus-linux/libbsd) + Alpine BSD compat headers | ✅ ✅ | ✅ x
-: | [libnl-tiny](https://github.com/Aalbus-linux/libnl-tiny) |  ✅ | <gettext>
+: | [libnl-tiny](https://github.com/Aalbus-linux/libnl-tiny) |  ✅ | gettext
 : | [gnu-getopt](https://github.com/Aalbus-linux/gnu-getopt) |  ✅ | x
 : | [libglob](https://github.com/Aalbus-linux/libglob) | ✅ | x
 libarchive | [bzip2](https://github.com/Aalbus-linux/bzip2) | ✅ | ✅ 
@@ -115,3 +118,4 @@ vis | [tre](https://github.com/Aalbus-linux/tre) | ✅ | ✅
 vis | [lua](https://github.com/Aalbus-linux/lua) | ✅ | ✅
 e2fs-tools | libuuid | ✅ | ✅
 e2fs-tools | libblkid | ✅ | ✅
+btrfs-tools | libmount | ✅ | ✅

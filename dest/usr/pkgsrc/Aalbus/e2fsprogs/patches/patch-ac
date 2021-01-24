@@ -1,0 +1,43 @@
+$NetBSD: patch-ac,v 1.6 2017/12/08 08:12:58 adam Exp $
+
+DragonFly Support
+
+--- lib/blkid/getsize.c.orig	2017-10-16 05:45:45.000000000 +0000
++++ lib/blkid/getsize.c
+@@ -36,6 +36,9 @@
+ #ifdef HAVE_SYS_DISKLABEL_H
+ #include <sys/disklabel.h>
+ #endif
++#ifdef __DragonFly__
++#include <sys/disklabel32.h>
++#endif
+ #ifdef HAVE_SYS_DISK_H
+ #include <sys/disk.h>
+ #endif
+@@ -134,8 +137,13 @@ blkid_loff_t blkid_get_dev_size(int fd)
+ #if defined(HAVE_SYS_DISKLABEL_H) && defined(DIOCGDINFO)
+ 	{
+ 		int part = -1;
++#ifdef __DragonFly__
++		struct disklabel32 lab;
++		struct partition32 *pp;
++#else
+ 		struct disklabel lab;
+ 		struct partition *pp;
++#endif
+ 		char ch;
+ 		struct stat st;
+ 
+@@ -151,8 +159,11 @@ blkid_loff_t blkid_get_dev_size(int fd)
+ 		if (fstat(fd, &st) >= 0 &&
+ 		    blkidP_is_disk_device(st.st_mode))
+ 			part = st.st_rdev & 7;
+-
++#ifdef __DragonFly__
++		if (part >= 0 && (ioctl(fd, DIOCGDINFO32, (char *)&lab) >= 0)) {
++#else
+ 		if (part >= 0 && (ioctl(fd, DIOCGDINFO, (char *)&lab) >= 0)) {
++#endif
+ 			pp = &lab.d_partitions[part];
+ 			if (pp->p_size)
+ 				return pp->p_size << 9;

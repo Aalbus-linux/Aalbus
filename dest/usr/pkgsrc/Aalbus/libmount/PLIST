@@ -1,0 +1,7 @@
+@comment $NetBSD$
+include/libmount/libmount.h
+lib/libmount.la
+lib/pkgconfig/mount.pc
+@pkgdir share/bash-completion/completions
+@pkgdir sbin
+@pkgdir bin
