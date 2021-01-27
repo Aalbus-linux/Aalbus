@@ -70,11 +70,11 @@ Shadow | [shadow](https://github.com/Aalbus-linux/shadow) | ✅ | ✅
 Bootloader | syslinux | |
 dosfstools | dosfstools | ✅ | ✅
 e2fs-tools | e2fstools | ✅ | ✅ 
-f2fs-tools | f2fs-tools | ✅ | 
+f2fs-tools | f2fs-tools | ✅ | ✅
 xfs-tools | xfs-tools | ✅ | ✅
 btrfs-tools | btrfs-tools | |
 zfs tools | zfs | |
-fdisk | gdisk | |
+fdisk | gptfdisk | ✅ | ✅
 Curl | [curl](https://github.com/Aalbus-linux/curl) | ✅ | ✅
 Perl | [perl5](https://github.com/Aalbus-linux/perl5) | ✅ | ✅
 Version control: | git | ✅ | ✅

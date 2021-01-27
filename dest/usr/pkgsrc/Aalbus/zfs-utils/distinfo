@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.24 2017/12/08 08:12:58 adam Exp $
+
+SHA1 (zfs-2.0.1.tar.gz) = aa7d7ed42fd8a71718e5e75b1fd267e5a677701b
+RMD160 (zfs-2.0.1.tar.gz) = 1338be6caf9aea52eac8a2f971d1b9a201a045da
+SHA512 (zfs-2.0.1.tar.gz) = 7e8f490605cb80747a2e471ac5bdd184038f514da379ea7cadf14d5635d5f4cd1b47a7c92c95c4c1b7b0cf5ec22ea905d0d3e8d24e71733484f34cc9429f0f94
+Size (zfs-2.0.1.tar.gz) = 12970188 bytes

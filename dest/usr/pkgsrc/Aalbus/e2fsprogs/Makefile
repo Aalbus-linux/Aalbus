@@ -96,9 +96,10 @@ pre-install:
 
 
 #conflicts with heimdal
-post-install:
-	rm ${DESTDIR}${PREFIX}/bin/compile_et
-	rm ${DESTDIR}${PREFIX}/lib/libcom_err.a
+#perhaps better to remove from heimdal?
+#post-install:
+#	rm ${DESTDIR}${PREFIX}/bin/compile_et
+#	rm ${DESTDIR}${PREFIX}/lib/libcom_err.a
 
 .include "../../devel/gettext-lib/buildlink3.mk"
 .include "../../devel/libblkid/buildlink3.mk"

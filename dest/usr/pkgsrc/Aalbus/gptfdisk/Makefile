@@ -13,6 +13,8 @@ USE_TOOLS+=             gmake
 
 WRKSRC=			${WRKDIR}/${DISTNAME}
 
+LDFLAGS+=		-lintl
+
 pre-build:
 		cp ./files/Makefile ${WRKSRC}/
 

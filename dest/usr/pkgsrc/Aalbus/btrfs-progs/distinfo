@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.24 2017/12/08 08:12:58 adam Exp $
+
+SHA1 (btrfs-progs-v5.10.tar.gz) = ca4592ea96c4697ceae3295fb9216d5f1c80f3c8
+RMD160 (btrfs-progs-v5.10.tar.gz) = 4a9e53b5b8693fed98e39d51f43b16a1dc500f77
+SHA512 (btrfs-progs-v5.10.tar.gz) = bf2927b0e3c18312b98270ddc56dfe0eae93f3199f06a50bcbf7af07f95e9b8ab627346afd7bc6c5b743147013ed33b2ca4d972432125a1ee44e57272295a369
+Size (btrfs-progs-v5.10.tar.gz) = 2701824 bytes
