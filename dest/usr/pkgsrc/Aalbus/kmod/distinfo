@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.24 2017/12/08 08:12:58 adam Exp $
+
+SHA1 (kmod-28.tar.gz) = 5cfd145e47d8f080c80cb6671267eef39fc2b87c
+RMD160 (kmod-28.tar.gz) = fe29a013b354874273b1708291f504269aa57433
+SHA512 (kmod-28.tar.gz) = 5dec289d5c5ad70af48d90e18326446f7b331db5462b0da0f4fb74604e34eaba19c3fe8d305332c928e2dd267ad7581f0bb04daed74b2e4cbda36b9ccb98b11e
+Size (kmod-28.tar.gz) = 1156784 bytes

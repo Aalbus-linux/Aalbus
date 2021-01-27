@@ -1,0 +1,13 @@
+# $NetBSD: buildlink3.mk,v 1.2 2019/11/04 21:28:44 rillig Exp $
+
+BUILDLINK_TREE+=	kmod
+
+.if !defined(E2FSPROGS_BUILDLINK3_MK)
+E2FSPROGS_BUILDLINK3_MK:=
+
+BUILDLINK_API_DEPENDS.kmod+=	kmod>=27nb1
+BUILDLINK_PKGSRCDIR.kmod?=	../../Aalbus/kmod
+
+.endif	# E2FSPROGS_BUILDLINK3_MK
+
+BUILDLINK_TREE+=	-kmod

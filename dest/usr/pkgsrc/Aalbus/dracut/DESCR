@@ -1,0 +1,2 @@
+Dracut is an initramfs infrastructure and aims to have as little as possible hard-coded into the initramfs.
+

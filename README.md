@@ -68,12 +68,13 @@ Access contol list: | [acl](https://github.com/Aalbus-linux/acl) | ✅ | ✅
 Magic | [file](https://github.com/Aalbus-linux/file) | ✅ | ✅
 Shadow | [shadow](https://github.com/Aalbus-linux/shadow) | ✅ | ✅ 
 Bootloader | syslinux | |
+Initramfs | dracut | ✅ | ✅
 dosfstools | dosfstools | ✅ | ✅
 e2fs-tools | e2fstools | ✅ | ✅ 
 f2fs-utils | f2fs-utils | ✅ | ✅
 xfstools | xfstools | ✅ | ✅
 btrfs-progs | btrfs-utils | ✅ | ✅
-zfs tools | zfs | |
+zfs-utils | zfs-utils | ✅ | ✅
 fdisk | gptfdisk | ✅ | ✅
 Curl | [curl](https://github.com/Aalbus-linux/curl) | ✅ | ✅
 Perl | [perl5](https://github.com/Aalbus-linux/perl5) | ✅ | ✅
@@ -96,6 +97,7 @@ s6-networking | [s6-dns](https://github.com/Aalbus-linux/s6-dns) | ✅ | ✅
 : | [s6-networking](https://github.com/Aalbus-linux/s6-networking) | ✅ |
 s6-linux-init | [execline](https://github.com/Aalbus-linux/execline) | ✅ | ✅ 
 s6-linux-init | [utpmps](https://github.com/Aalbus-linux/utmps) | ✅ | ✅
+dracut | kmod | ✅ | ✅
 : | [libbsd](https://github.com/Aalbus-linux/libbsd) + Alpine BSD compat headers | ✅ ✅ | ✅ x
 : | [libnl-tiny](https://github.com/Aalbus-linux/libnl-tiny) |  ✅ | gettext
 : | [gnu-getopt](https://github.com/Aalbus-linux/gnu-getopt) |  ✅ | x

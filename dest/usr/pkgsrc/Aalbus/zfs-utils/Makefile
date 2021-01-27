@@ -24,6 +24,8 @@ CONFIGURE_ARGS+=	SED=/usr/gnu/bin/sed
 
 MAKE_FLAGS=		RM="rm -f"
 
+CFLAGS+=		-I/usr/include/tirpc
+
 INSTALL_TARGET=		install
 
 

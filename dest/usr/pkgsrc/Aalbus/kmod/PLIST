@@ -1,0 +1,14 @@
+@comment $NetBSD$
+bin/kmod
+include/libkmod.h
+lib/libkmod.la
+lib/pkgconfig/libkmod.pc
+share/bash-completion/completions/kmod
+man/man5/depmod.d.5
+man/man5/modprobe.d.5
+man/man5/modules.dep.5
+man/man5/modules.dep.bin.5
+man/man8/depmod.8
+man/man8/kmod.8
+man/man8/modinfo.8
+man/man8/modprobe.8

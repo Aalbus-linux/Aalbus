@@ -9,6 +9,7 @@ export LD_LIBRARY_PATH=/usr/lib
 export CC=clang
 export CXX=clang++
 export FC=flang
+export F77=flang
 
 #tools
 
