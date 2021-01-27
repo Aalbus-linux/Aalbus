@@ -70,9 +70,9 @@ Shadow | [shadow](https://github.com/Aalbus-linux/shadow) | ✅ | ✅
 Bootloader | syslinux | |
 dosfstools | dosfstools | ✅ | ✅
 e2fs-tools | e2fstools | ✅ | ✅ 
-f2fs-tools | f2fs-tools | ✅ | ✅
-xfs-tools | xfs-tools | ✅ | ✅
-btrfs-tools | btrfs-tools | |
+f2fs-utils | f2fs-utils | ✅ | ✅
+xfstools | xfstools | ✅ | ✅
+btrfs-progs | btrfs-utils | ✅ | ✅
 zfs tools | zfs | |
 fdisk | gptfdisk | ✅ | ✅
 Curl | [curl](https://github.com/Aalbus-linux/curl) | ✅ | ✅

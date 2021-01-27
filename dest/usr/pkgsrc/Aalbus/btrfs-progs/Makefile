@@ -20,10 +20,15 @@ USE_TOOLS+=	gmake
 pre-configure:
 	cp files/configure $(WRKSRC)/
 
+post-configure:
+	cp files/Makefile $(WRKSRC)/
+
 CONFIGURE_ARGS+=	--with-crypto=libsodium
 CONFIGURE_ARGS+=	--disable-documentation
 CONFIGURE_ARGS+=	--disable-shared
 CONFIGURE_ARGS+=	--enable-static
+CONFIGURE_ARGS+=	--prefix=/usr
+CONFIGURE_ARGS+=	--sysconfdir=/etc
 #we have some weird issue with pkg-config and configure.
 #same issue for both pkgconf and real pkg-config
 CONFIGURE_ARGS+=        PKG_CONFIG="/usr/bin/pkg-config"
@@ -40,7 +45,6 @@ CONFIGURE_ARGS+=	ZSTD_LIBS="/usr/lib/libzstd.a"
 CONFIGURE_ARGS+=	ZSTD_CFLAGS="-I/usr/include"
 
 LDFLAGS+=	-static -lexecinfo -lext2fs -z muldefs
-
 CFLAGS+=	-static -fno-lto -I/usr/include/uuid -I/usr/include/blkid -I/usr/include/ext2fs
 
 .include "../../devel/libblkid/buildlink3.mk"
