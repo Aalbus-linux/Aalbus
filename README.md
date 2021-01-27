@@ -43,7 +43,7 @@ LibC++: | [LLVM/libc++](https://github.com/Aalbus-linux/llvm-project) | ✅ |
 Curses: | [netbsd-curses](https://github.com/Aalbus-linux/netbsd-curses) | ✅ | ✅ 
 Readline: | [libedit](https://github.com/Aalbus-linux/libedit) | ✅ | ✅
 Pam | [OpenPAM](https://github.com/Aalbus-linux/OpenPAM) | ✅ | ✅
-libcap | [libcap-ng](https://github.com/Aalbus-linux/libcap-ng) | ✅ |
+libcap | [libcap-ng](https://github.com/Aalbus-linux/libcap-ng) | ✅ | ✅
 Coreutils: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase) | ✅ | ✅
 util-linux: | [ubase (Suckless)](https://github.com/Aalbus-linux/ubase) (static) | ✅ | ✅
 grep: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase) and [ugrep](https://github.com/Aalbus-linux/ugrep) | ✅ ✅ | ✅ ✅
@@ -53,7 +53,7 @@ sed: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase) | ✅ | ✅
 zlib: | zlib | ✅ | ✅
 Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive) + [pigz](https://github.com/Aalbus-linux/pigz) | ✅ ✅ | ✅ ✅
 Init system: | [s6 init](https://github.com/Aalbus-linux/s6-linux-init) + [s6-rc](https://github.com/Aalbus-linux/s6-linux-init) | ✅ ✅ | 
-udev: | [mdevd](https://github.com/Aalbus-linux/mdevd) | ✅ |
+udev: | [mdevd](https://github.com/Aalbus-linux/mdevd) | ✅ | ✅
 Shell: | [mksh](https://github.com/Aalbus-linux/mksh) (static) | ✅ | ✅
 roff: | [heirloom-doctools](https://github.com/Aalbus-linux/heirloom-doctools)| ✅ | ✅
 man: | [mandoc](https://github.com/Aalbus-linux/mandoc-mirror) | ✅ | ✅
@@ -88,7 +88,7 @@ Package | Dependency | Built | migrated to pkgsrc
 LLVM | libexecinfo | ✅ | ✅
 most | [S-Lang](https://github.com/Aalbus-linux/S-Lang) | ✅ | ✅ 
 attr | [gettext-tiny](https://github.com/Aalbus-linux/gettext-tiny) | ✅ | gettext 
-shadow | [libcap-ng](https://github.com/Aalbus-linux/libcap-ng) | ✅ |
+shadow | [libcap-ng](https://github.com/Aalbus-linux/libcap-ng) | ✅ | ✅
 shadow | [skey](https://github.com/Aalbus-linux/skey) | ✅ | ✅ 
 s6-linux-init | [skalibs](https://github.com/Aalbus-linux/skalibs) | ✅ | ✅ 
 s6-linux-init | [s6](https://github.com/Aalbus-linux/s6) | ✅ | ✅

@@ -1,21 +1,18 @@
 @comment $NetBSD$
-bin/s6-rc
-bin/s6-rc-bundle
-bin/s6-rc-compile
-bin/s6-rc-db
-bin/s6-rc-dryrun
-bin/s6-rc-format-upgrade
-bin/s6-rc-init
-bin/s6-rc-update
-include/s6-rc/config.h
-include/s6-rc/s6rc-constants.h
-include/s6-rc/s6rc-db.h
-include/s6-rc/s6rc-servicedir.h
-include/s6-rc/s6rc-utils.h
-include/s6-rc/s6rc.h
-lib/s6-rc/libs6rc.a
-libexec/s6-rc-fdholder-filler
-libexec/s6-rc-oneshot-run
-@pkgdir lib/s6-rc
-@pkgdir lib
-@pkgdir include
+bin/s6-linux-init
+bin/s6-linux-init-echo
+bin/s6-linux-init-hpr
+bin/s6-linux-init-logouthookd
+bin/s6-linux-init-maker
+bin/s6-linux-init-nuke
+bin/s6-linux-init-shutdown
+bin/s6-linux-init-shutdownd
+bin/s6-linux-init-telinit
+bin/s6-linux-init-umountall
+etc/s6-linux-init/skel/rc.init
+etc/s6-linux-init/skel/rc.shutdown
+etc/s6-linux-init/skel/rc.shutdown.final
+etc/s6-linux-init/skel/runlevel
+include/s6-linux-init/config.h
+include/s6-linux-init/s6-linux-init.h
+lib/s6-linux-init/libs6_linux_init.a

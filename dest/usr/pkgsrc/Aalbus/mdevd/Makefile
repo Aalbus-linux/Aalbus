@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=	mdevd-0.1.1.1
+DISTNAME=	mdevd-0.1.3.0
 CATEGORIES=	sysutils
 MASTER_SITES=	http://skarnet.org/software/mdevd/
 
@@ -17,7 +17,7 @@ CONFIGURE_ARGS+=	--with-lib=${PREFIX}/lib/execline
 CONFIGURE_ARGS+=	--with-lib=${PREFIX}/lib/skalibs
 CONFIGURE_ARGS+=	--with-include=${PREFIX}/include
 
-.include "../../devel/skalibs/buildlink3.mk"
-.include "../../wip/execline/buildlink3.mk"
-# .include "../../wip/s6/buildlink3.mk"
+.include "../../Aalbus/skalibs/buildlink3.mk"
+.include "../../Aalbus/execline/buildlink3.mk"
+# .include "../../Aalbus/s6/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

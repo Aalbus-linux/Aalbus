@@ -8,24 +8,24 @@ PKGREVISION=	1
 CATEGORIES=	sysutils
 MASTER_SITES=	https://github.com/stevegrubb/libcap-ng/archive/
 
-MAINTAINER=	pkgsrc-users@NetBSD.org
-HOMEPAGE=	https://sites.google.com/site/fullycapable/
+MAINTAINER=	staal1978@gmail.com
+HOMEPAGE=	https://people.redhat.com/sgrubb/libcap-ng/
 COMMENT=	Library for getting and setting POSIX.1e capabilities
 LICENSE=	gnu-gpl-v2
 
-USE_TOOLS+=	pkg-config gmake perl
+USE_TOOLS+=	pkg-config libtool autoconf gmake perl
 
 ONLY_FOR_PLATFORM=	Linux-*-*
 
+# do this manually for now. No idea why it does not work...
+#pre-configure:
+#	cd $(WRKSRC) && M4=/usr/gnu/bin/m4 ./autogen.sh
+
 GNU_CONFIGURE=	yes
+CONFIGURE_ARGS+=	--prefix=/usr
+CONFIGURE_ARGS+=	--sysconfdir=/etc
+CONFIGURE_ARGS+=	--without-python
+CONFIGURE_ARGS+=	--without-python3
 
-MAKE_FLAGS+=	LIBDIR=${PREFIX}/lib
-MAKE_FLAGS+=	SBINDIR=${PREFIX}/sbin
-MAKE_FLAGS+=	INCDIR=${PREFIX}/include
-MAKE_FLAGS+=	MANDIR=${PREFIX}/${PKGMANDIR}
-MAKE_FLAGS+=	PKGCONFIGDIR=${PREFIX}/lib/pkgconfig
-
-INSTALL_MAKE_FLAGS+=	RAISE_SETFCAP=no
-INSTALL_MAKE_FLAGS+=	DESTDIR=${DESTDIR}
 
 .include "../../mk/bsd.pkg.mk"
