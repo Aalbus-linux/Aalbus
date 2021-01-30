@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export LD="ld-efi" 
+export CFLAGS="--target x86_64-pc-win32-coff -fno-stack-protector -ffreestanding -fshort-wchar -mno-red-zone" 
+exec clang $* 
+

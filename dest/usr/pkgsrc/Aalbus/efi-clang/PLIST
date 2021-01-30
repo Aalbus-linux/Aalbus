@@ -1,0 +1,20 @@
+@comment $NetBSD$
+bin/clang-efi
+include/efi/efi-bs.h
+include/efi/efi-ct.h
+include/efi/efi-rs.h
+include/efi/efi-st.h
+include/efi/efi-time.h
+include/efi/efi.h
+include/efi/efi.inc
+include/efi/protocol/efi-acpitp.h
+include/efi/protocol/efi-dpp.h
+include/efi/protocol/efi-fp.h
+include/efi/protocol/efi-gop.h
+include/efi/protocol/efi-lidpp.h
+include/efi/protocol/efi-lip.h
+include/efi/protocol/efi-sfsp.h
+include/efi/protocol/efi-stip.h
+include/efi/protocol/efi-stop.h
+include/efi/protocol/efi-vmpp.h
+include/efi/types.inc

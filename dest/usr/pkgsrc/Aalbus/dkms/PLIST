@@ -1,0 +1,6 @@
+@comment $NetBSD$
+lib/dkms/common.postinst
+lib/dkms/dkms_autoinstaller
+sbin/dkms
+share/bash-completion/completions/dkms
+man/man8/dkms.8

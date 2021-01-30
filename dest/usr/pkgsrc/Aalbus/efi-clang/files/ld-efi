@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export LDFLAGS="--target x86_64-pc-win32-coff -nostdlib -Wl,-entry:efi_main -Wl,-subsystem:efi_application"
+exec lld-link $* 
+

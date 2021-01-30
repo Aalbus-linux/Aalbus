@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.2 2004/10/18 17:27:03 jeremy-c-reed Exp $
+
+SHA1 (efibootmgr-16.tar.bz2) = 3b023978c27af2514606de2a6be11801d881b5a3
+RMD160 (efibootmgr-16.tar.bz2) = 606f1da7ad7b3c0a1fa57efc0981fbaf1111518e
+SHA512 (efibootmgr-16.tar.bz2) = 936318c7163c07b716f89be3d830957d9db68ba1b059223f7ea3d9eafe0dbf1c91b9aee096f5aed70955c6052c3b8547295c0a47f17cdf43788259d87d1990b9
+Size (efibootmgr-16.tar.bz2) = 36603 bytes

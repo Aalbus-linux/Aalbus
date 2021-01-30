@@ -26,10 +26,9 @@ pre-configure:
 		sed -i s'/__uint32_t/uint32_t/g' $(WRKSRC)/efi/wrapper.*
 		sed -i s'/__uint16_t/uint16_t/g' $(WRKSRC)/efi/wrapper.*
 		sed -i s'/__uint8_t/unsigned char/g' $(WRKSRC)/efi/wrapper.*
-		sed -i s'/(TARGETS)/(MAN_DOCS)/g' $(WRKSRC)/txt/Makefile
+		cp files/Makefile $(WRKSRC)/
 		cp files/embedded.mk $(WRKSRC)/mk/
 		cp files/loadlib.c $(WRKSRC)/com32/lua/src/
-		rm -rf $(WRKSRC)/win*
 
 MAKE_FLAGS+=		CC="clang" LIBS="/usr/lib/libssp-bionic.a /usr/lib/libc.a"
 MAKE_FLAGS+=		efi64 ARCH=x86_64 

@@ -1,0 +1,16 @@
+$NetBSD: distinfo,v 1.14 2018/10/27 21:44:53 abs Exp $
+
+SHA1 (acpica-unix-20210105.tar.gz) = 6d825e662eac26d36f58e7f1a698833267ab4a5b
+RMD160 (acpica-unix-20210105.tar.gz) = 0649f9f5282662210f19981e2505a7ffab2553dd
+SHA512 (acpica-unix-20210105.tar.gz) = c5b9c09c24f6fb48d301781ab58f5e4ca072c807c00fff9a542b6a1bf44ffa0e7b4c786b25a4bfa08a49a653d26e2393264646ffcc6bbfbba61518b84fa7d326
+Size (acpica-unix-20210105.tar.gz) = 1856776 bytes
+SHA1 (acpitests-unix-20210105.tar.gz) = 6605dc7720a91a23035f9cec0312ecfd82ca8b22
+RMD160 (acpitests-unix-20210105.tar.gz) = 72dc8d910105c00eee1121771378615547532782
+SHA512 (acpitests-unix-20210105.tar.gz) = 676562ce46fe1f6c71fde7ccda49cefed50d81641f6ec69effa72e5d70e4f60ac8d0be28ce4b74d0b99c639d058c5f6a50759a6f76f126f80ab4cbb9152ec935
+Size (acpitests-unix-20210105.tar.gz) = 2212804 bytes
+SHA1 (patch-generate_unix_Makefile.config) = b760ec07afa96902641ff4b979b7764baa39aceb
+SHA1 (patch-source_compiler_aslanalyze.c) = fae01580943d61dd907bd2835be432258f972f7d
+SHA1 (patch-source_compiler_aslpredef.c) = 1d4c9a5fe0ad437f55b0381761ed128624fc220d
+SHA1 (patch-source_compiler_aslwalks.c) = 7c18ed4005c383020f94c71a2fc5ee2f768fcb07
+SHA1 (patch-source_include_platform_acnetbsd.h) = 004db064e8ff8c2bc5314d6d506e9da8d281376d
+SHA1 (patch-source_include_platform_acsolaris.h) = ecc090345a6d259f96923376e65d28c57dceebab

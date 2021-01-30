@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.2 2004/10/18 17:27:03 jeremy-c-reed Exp $
+
+SHA1 (efivar-37.tar.bz2) = 1ef24e0a06e1a42d7a93ba7a76b2970659c7c0c0
+RMD160 (efivar-37.tar.bz2) = 5c9c082ce160405790b9d5dc6afcb86e476ba811
+SHA512 (efivar-37.tar.bz2) = 305a82ed103c7e3d8f723934019d552677c73558768dd5341f87d0364f5c60824d24f5a8e1bf90075e825908085083d4ecdccec5ac757fd38ee6ac8fea28c3e4
+Size (efivar-37.tar.bz2) = 109431 bytes

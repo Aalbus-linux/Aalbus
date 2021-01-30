@@ -1,0 +1,37 @@
+# $NetBSD: Makefile.common,v 1.9 2008/05/24 15:34:11 tnn2 Exp $
+# used by wip/linux-kernel-headers/Makefile
+
+LINUX_VERSION=		5.10.11
+
+DISTNAME=		linux-${LINUX_VERSION}
+CATEGORIES=		misc
+MASTER_SITES=		https://cdn.kernel.org/pub/linux/kernel/v5.x/
+EXTRACT_SUFX=		.tar.xz
+
+MAINTAINER=		reed@reedmedia.net
+HOMEPAGE=		https://www.kernel.org/
+
+ONLY_FOR_PLATFORM=	Linux-*-*
+
+USE_TOOLS+=		gmake
+PLIST_SUBST+=		LINUX_VERSION=${LINUX_VERSION:Q}
+CFLAGS+=		-I${WRKSRC}/include
+MAKE_ENV+=		INSTALL_MOD_PATH=${LINUXBASE:Q}
+
+DISTINFO_FILE?=		${.CURDIR}/../../Aalbus/linux-kernel/distinfo
+PATCHDIR?=		${.CURDIR}/../../Aalbus/linux-kernel/patches
+FILESDIR=		${.CURDIR}/../../Aalbus/linux-kernel/files
+
+.include "../../mk/bsd.prefs.mk"
+BUILD_DEFS+=	IPV6_READY
+
+# This configure is also needed for the linux-kernel-headers package
+# so that include/linux/autoconf.h is generated.
+# oldconfig is for regenerating after is appended too
+do-configure:
+	cd ${WRKSRC} && \
+	yes "" | ${GMAKE} config && \
+	${CAT} ${FILESDIR}/extra-configs >> .config
+	cd ${WRKSRC} && yes "" | ${GMAKE} oldconfig && \
+	${MV} ${WRKSRC}/.config ${WRKSRC}/.config.moved && \
+	/usr/gnu/bin/sed -e '2c# Linux kernel .config configuration used for the ${PKGNAME} package.' ${WRKSRC}/.config.moved > ${WRKSRC}/.config

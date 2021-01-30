@@ -67,7 +67,7 @@ Extended file attributes: | [attr](https://github.com/Aalbus-linux/attr) | ✅ |
 Access contol list: | [acl](https://github.com/Aalbus-linux/acl) | ✅ | ✅
 Magic | [file](https://github.com/Aalbus-linux/file) | ✅ | ✅
 Shadow | [shadow](https://github.com/Aalbus-linux/shadow) | ✅ | ✅ 
-Bootloader | syslinux | |
+Bootloader | refind | |
 Initramfs | dracut | ✅ | ✅
 dosfstools | dosfstools | ✅ | ✅
 e2fs-tools | e2fstools | ✅ | ✅ 
@@ -121,3 +121,6 @@ vis | [lua](https://github.com/Aalbus-linux/lua) | ✅ | ✅
 e2fs-tools | libuuid | ✅ | ✅
 e2fs-tools | libblkid | ✅ | ✅
 btrfs-tools | libmount | ✅ | ✅
+refind | gnu-efi | | 
+
+TODO: investigate ways to replace gnu-efi with a more native compilation using efi-clang
