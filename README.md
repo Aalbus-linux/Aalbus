@@ -96,7 +96,7 @@ s6-linux-init | [s6](https://github.com/Aalbus-linux/s6) | ✅ | ✅
 s6-networking | [s6-dns](https://github.com/Aalbus-linux/s6-dns) | ✅ | ✅
 : | [s6-networking](https://github.com/Aalbus-linux/s6-networking) | ✅ |
 s6-linux-init | [execline](https://github.com/Aalbus-linux/execline) | ✅ | ✅ 
-s6-linux-init | [utpmps](https://github.com/Aalbus-linux/utmps) | ✅ | ✅
+s6-linux-init | [utmps](https://github.com/Aalbus-linux/utmps) | ✅ | ✅
 dracut | kmod | ✅ | ✅
 : | [libbsd](https://github.com/Aalbus-linux/libbsd) + Alpine BSD compat headers | ✅ ✅ | ✅ x
 : | [libnl-tiny](https://github.com/Aalbus-linux/libnl-tiny) |  ✅ | gettext
