@@ -50,7 +50,7 @@ grep: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase) and [ugrep](http
 awk: | [onetrueawk](https://github.com/Aalbus-linux/awk) | ✅ | ✅
 bc: | [BSD bc](https://github.com/Aalbus-linux/bc) | ✅ | ✅
 sed: | [nbase (NetBSD)](https://github.com/Aalbus-linux/nbase) | ✅ | ✅
-zlib: | zlib | ✅ | ✅
+zlib: | [zlib-ng](https://github.com/zlib-ng/zlib-ng) | ✅ | ✅
 Archivers: | [libarchive](https://github.com/Aalbus-linux/libarchive) + [pigz](https://github.com/Aalbus-linux/pigz) | ✅ ✅ | ✅ ✅
 Init system: | [s6 init](https://github.com/Aalbus-linux/s6-linux-init) + [s6-rc](https://github.com/Aalbus-linux/s6-linux-init) | ✅ ✅ | 
 udev: | [mdevd](https://github.com/Aalbus-linux/mdevd) | ✅ | ✅
@@ -96,7 +96,7 @@ s6-linux-init | [s6](https://github.com/Aalbus-linux/s6) | ✅ | ✅
 s6-networking | [s6-dns](https://github.com/Aalbus-linux/s6-dns) | ✅ | ✅
 : | [s6-networking](https://github.com/Aalbus-linux/s6-networking) | ✅ |
 s6-linux-init | [execline](https://github.com/Aalbus-linux/execline) | ✅ | ✅ 
-s6-linux-init | [utpmps](https://github.com/Aalbus-linux/utmps) | ✅ | ✅
+s6-linux-init | [utmps](https://github.com/Aalbus-linux/utmps) | ✅ | ✅
 dracut | kmod | ✅ | ✅
 : | [libbsd](https://github.com/Aalbus-linux/libbsd) + Alpine BSD compat headers | ✅ ✅ | ✅ x
 : | [libnl-tiny](https://github.com/Aalbus-linux/libnl-tiny) |  ✅ | gettext
