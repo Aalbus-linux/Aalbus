@@ -1,7 +1,7 @@
 # $NetBSD: Makefile,v 1.6 2020/02/20 13:22:56 cheusov Exp $
 #
 
-DISTNAME=	nbase-7.0.0.10
+DISTNAME=	nbase-9.1.0.2
 CATEGORIES=	sysutils
 MASTER_SITES=	${MASTER_SITE_GITHUB:=cheusov/}
 
@@ -11,12 +11,12 @@ COMMENT=	NetBSD userlevel portable to other UNIX-like systems
 LICENSE=	modified-bsd
 
 GITHUB_PROJECT=	nbase
-BUILD_DEPENDS+=	mk-configure>=0.36.0:../../devel/mk-configure
+BUILD_DEPENDS+=	mk-configure>=0.37.0:../../devel/mk-configure
 
 USE_LANGUAGES=		c
 USE_TOOLS+=		lex byacc
 
-CFLAGS+=	-static -fPIE -DTM_YEAR_BASE=1900
+CFLAGS+=	-static -fPIE -DTM_YEAR_BASE=1900 -I/use/share/mk-configure/features
 LDFLAGS+=	-lterminfo
 
 TEST_TARGET=		test
