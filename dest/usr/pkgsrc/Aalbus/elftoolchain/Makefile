@@ -1,9 +1,7 @@
 # $NetBSD: Makefile,v 1.17 2020/03/20 11:57:26 nia Exp $
 
-DISTNAME=	elftoolchain-0.7.1
+DISTNAME=	elftoolchain-svn-0
 CATEGORIES=	devel
-MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=elftoolchain/}
-EXTRACT_SUFX=	.tar.bz2
 
 MAINTAINER=	agc@NetBSD.org
 HOMEPAGE=	http://elftoolchain.sourceforge.net/
@@ -11,6 +9,8 @@ COMMENT=	Compilation tools (nm, ar, as, ld, etc.) for the ELF object format
 LICENSE=	modified-bsd
 
 CONFLICTS=	libelf-[0-9]*
+
+SVN_REPO=       svn://svn.code.sf.net/p/elftoolchain/code/trunk
 
 NOT_FOR_PLATFORM=	Darwin-*-*
 
@@ -30,9 +30,19 @@ INSTALLATION_DIRS+=	${PKGMANDIR}/man5 ${PKGMANDIR}/cat5 ${PKGMANDIR}/html5
 
 BUILDLINK_TRANSFORM+=	rm:-Werror
 
+pre-build:
+	cp files/mk/* $(WRKSRC)/mk/
+	rm -rf $(WRKSRC)/test
+
+
+MAKE_FLAGS+=		WITH_ISA=yes
+
+INSTALL_MAKE_FLAGS+=	RANLIB=$(WRKSRC)/ar/ranlib
+
 #remove files conflicting with llvm tools
 post-install:
 	                rm -rf ${DESTDIR}${PREFIX}/bin
 			rm -rf $(DESTDIR)$(PREFIX)/share/man/man1
 
+.include "../../wip/mk/svn-package.mk"
 .include "../../mk/bsd.pkg.mk"

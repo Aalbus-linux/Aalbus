@@ -24,8 +24,9 @@ WRKSRC=			${WRKDIR}/refind
 pre-build:
 	sed -i s'/)gcc/)clang/g' $(WRKSRC)/Make.common
 	sed -i s'/-fno-tree-loop-distribute-patterns//g' $(WRKSRC)/Make.common
-	sed -i s'|-lefi -lgnuefi|-lefi -lgnuefi /usr/lib/libssp-bionic.a /usr/lib/libc.a|g' $(WRKSRC)/Make.common
-	sed -i 's/--target=efi-/--target=binary #/g' -i $(WRKSRC)/Make.common
+	# sed -i s'/-Bsymbolic -nostdlib/-Bsymbolic -nostdlib -subsystem:efi_application -nodefaultlib -dll/g' $(WRKSRC)/Make.common
+	sed -i s'|-fpic|-ffreestanding -static|g' $(WRKSRC)/Make.common
+	# sed -i 's/--target=efi-/--target=binary #/g' -i $(WRKSRC)/Make.common #this hack made it build but is WRONG! Cheated by copying .efi files from Arch.
 	# hardcode RefindDir, so that refind-install can find refind_x64.efi
 	sed -e 's|RefindDir=\"\$ThisDir/refind\"|RefindDir="/usr/share/refind/"|g' -i $(WRKSRC)/refind-install
 
@@ -50,5 +51,7 @@ do-install:
 
 # add buildling to gnu-efi later...
 # TODO : investigate if efi-clang could be used...
+# And make proper .efi binaries using clang
+
 .include "../../wip/mk/git-package.mk"
 .include "../../mk/bsd.pkg.mk"

@@ -1,2 +1,8 @@
 An EFI boot loader
 
+# WARNING
+# at this moment I have cheated here.
+# llvm-objcopy can not do the --target app-efi-x86_64
+# I have copied the .efi files from Arch linux
+
+

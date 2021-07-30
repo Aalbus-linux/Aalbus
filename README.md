@@ -17,7 +17,7 @@ Aalbus is an experimental base system which aims to be self-hosting and installa
 The base system distribution includes the pkgsrc package manager, and the aim is to package the entire base distribution using custom mkfiles under a custom "Aalbus" sub-directory in pkgsrc. A problem that needs to be solved is that pkgsrc tends to pull in a lot of dependencies that the bootstrapped system has shown are not needed, which leads to a "bloating" of the system. Because of this, the migration will be gradual and at first will only packages that can be built cleanly in pkgsrc be migrated. The /usr/pkg directory is merged with / and /usr.
 
 # Components
-As a warning for future users: This Linux distribution is built with alternative libraries, which means that it is source-compatible with most open source programs but not binary-compatible with GNU/Linux. You will thus most likely never be able to run closed source binaries intended for GNU/Linux on this OS. All sources (including modifications) used to [bootstrap](https://github.com/Aalbus-linux/Aalbus/blob/main/src/bootstrap) this base system are present as forked repositories under the Aalbus-Linux organization. The continued development strategy from inside the Aalbus system has changed from following -git to use a modified local fork of pkgsrc (2020Q4). Details will be found under [/usr/local/scripts](https://github.com/Aalbus-linux/Aalbus/tree/main/dest/usr/local/scripts) where especially the configuration for the LLVM toolchain currently resides and [/usr/pkgsrc/Aalbus](https://github.com/Aalbus-linux/Aalbus/tree/main/dest/usr/pkgsrc/Aalbus) with locally modified or generated packages specifically for Aalbus. Ultimately, all components will hopefully migrate to pkgsrc packages, which will mean that the base system can be managed and installed from a binary package repository. At a later stage, local modifications will be changed to external patches and directories so that most of the system can be maintained using vanilla upstream pkgsrc.
+As a warning for future users: This Linux distribution is built with alternative libraries, which means that it is source-compatible with most open source programs but not binary-compatible with GNU/Linux. You will thus most likely never be able to run closed source binaries intended for GNU/Linux on this OS. All sources (including modifications) used to [bootstrap](https://github.com/Aalbus-linux/Aalbus/blob/main/src/bootstrap) this base system are present as forked repositories under the Aalbus-Linux organization. The continued development strategy from inside the Aalbus system has changed from following -git to use a modified local fork of pkgsrc. Details will be found under [/usr/local/scripts](https://github.com/Aalbus-linux/Aalbus/tree/main/dest/usr/local/scripts) and [/usr/pkgsrc/Aalbus](https://github.com/Aalbus-linux/Aalbus/tree/main/dest/usr/pkgsrc/Aalbus) with locally modified or generated packages specifically for Aalbus. Ultimately, all components will hopefully migrate to pkgsrc packages, which will mean that the base system can be managed and installed from a binary package repository. At a later stage, local modifications will be changed to external patches and directories so that most of the system can be maintained using vanilla upstream pkgsrc.
 
 ## Overview of components:
 With the migration to pkgsrc, the list below is not complete since pkgsrc pulls in several other dependencies. Initially this "fat" developer image with all the tools will be released. When things have matured, a minimal "user" image will be generated where only utilities needed to boot, run, partition and format disk, install and use the binary package manager to install programs (including all the developer tools present in the "fat" image).
@@ -25,8 +25,8 @@ With the migration to pkgsrc, the list below is not complete since pkgsrc pulls 
 Core component | Implementation | Built | migrated to pkgsrc
 ------------ | ------------- | ------------- | -------------
 Kernel: | [Linux](https://github.com/Aalbus-linux/linux) +[Filemon](https://github.com/Aalbus-linux/filemon-linux) +[ZFS](https://github.com/Aalbus-linux/zfs) | |
-C compiler: | [LLVM/Clang](https://github.com/Aalbus-linux/llvm-project) | ✅ |
-C++ compiler: | [LLVM/Clang++](https://github.com/Aalbus-linux/llvm-project) | ✅ |
+C compiler: | [LLVM/Clang](https://github.com/Aalbus-linux/llvm-project) | ✅ | ✅
+C++ compiler: | [LLVM/Clang++](https://github.com/Aalbus-linux/llvm-project) | ✅ | ✅
 Fortran compiler: | [LLVM/Flang](https://github.com/Aalbus-linux/llvm-project) | ✅ |
 YACC: | [byacc](https://github.com/Aalbus-linux/byacc-snapshots) | ✅ | ✅ 
 LEX:  | [flex](https://github.com/Aalbus-linux/flex) and [RE-flex](https://github.com/Aalbus-linux/RE-flex) | ✅ ✅ | ✅ ✅
@@ -39,7 +39,7 @@ Ninja: | [samurai](https://github.com/Aalbus-linux/samurai) | ✅ | ✅
 LibC: | [musl](https://github.com/Aalbus-linux/musl) + [llvm-crt-replacement](https://github.com/Aalbus-linux/llvm-crt-replacement) |  ✅ ✅ | ✅ x 
 LibELF: | [elftoolchain](https://github.com/Aalbus-linux/elftoolchain) | ✅ | ✅
 nss: | [nsss](https://github.com/Aalbus-linux/nsss) (static) | ✅ | ✅
-LibC++: | [LLVM/libc++](https://github.com/Aalbus-linux/llvm-project) | ✅ |
+LibC++: | [LLVM/libc++](https://github.com/Aalbus-linux/llvm-project) | ✅ | ✅
 Curses: | [netbsd-curses](https://github.com/Aalbus-linux/netbsd-curses) | ✅ | ✅ 
 Readline: | [libedit](https://github.com/Aalbus-linux/libedit) | ✅ | ✅
 Pam | [OpenPAM](https://github.com/Aalbus-linux/OpenPAM) | ✅ | ✅

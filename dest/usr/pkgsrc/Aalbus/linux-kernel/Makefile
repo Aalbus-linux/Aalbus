@@ -31,24 +31,24 @@ LINUXBASE?=	${PREFIX}
 
 NO_MTREE=	YES
 
-USE_TOOLS+=	gmake gm4 gsed
-
 PLIST_SUBST+=		LINUXBASE=${LINUXBASE:Q}
 MESSAGE_SUBST+=		PKGBASE=${PKGBASE}
 
-CFLAGS+=	-fno-lto
-
-MAKE_FLAGS+=	M4=/usr/gnu/bin/m4
-MAKE_FLAGS+=	SED=/usr/gnu/bin/sed
-MAKE_FLAGS+=	CC=clang HOSTCC=clang
-MAKE_FLAGS+=	LLVM_IAS=1 CLANG_VERSION=120000
+MAKE_FLAGS+=	LLVM=1 LLVM_IAS=1
+MAKE_FLAGS+=	KCFLAGS="-I/usr/lib/clang/12.0.0/include"
 
 MAKE_DIRS+=	${LINUXBASE}/lib/modules
 MAKE_DIRS+=	${LINUXBASE}/boot
 
+MAKE_ENV+=	PATH="/usr/gnu/bin:$(PATH)"
+
+pre-build:
+	cp /usr/lib/clang/12.0.0/include/stdarg.h $(WRKSRC)/include/
+	sed -i 's|firmware/efi/libstub/lib.a|firmware/efi/libstub/lib.a /usr/lib/libssp-stub.a|g' $(WRKSRC)/arch/x86/boot/compressed/Makefile
+
 do-build:
-	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${GMAKE} bzImage && \
-	${SETENV} ${MAKE_ENV} ${GMAKE} modules
+	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${GMAKE} $(MAKE_FLAGS) bzImage && \
+	${SETENV} ${MAKE_ENV} ${GMAKE} $(MAKE_FLAGS) modules
 
 do-install:
 	${INSTALL_DATA_DIR} ${LINUXBASE}/boot

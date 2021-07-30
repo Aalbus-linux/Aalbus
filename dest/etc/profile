@@ -23,11 +23,13 @@ export EGREP="ugrep -E"
 export FGREP="ugrep -F"
 export SED=sed
 export PAGER=most
+export FLEX=/usr/bin/flex
+export PKG_CONFIG=/usr/bin/pkgconf
 
 #flags and libraries
 
 export CPPFLAGS=
-export COMMON_FLAGS="-flto=thin -march=native -O2 -pipe"
+export COMMON_FLAGS="-march=native -O2 -pipe"
 export CFLAGS="$COMMON_FLAGS"
 export CXXFLAGS="-stdlib=libc++ $COMMON_FLAGS"
 export FFLAGS="$COMMON_FLAGS"
