@@ -1,0 +1,6 @@
+$NetBSD: distinfo,v 1.67 2021/07/12 18:42:06 adam Exp $
+
+SHA1 (flang-12.0.1.src.tar.xz) = f67f3b8348293875eb475f4dd250abb0732ed5c6
+RMD160 (flang-12.0.1.src.tar.xz) = a4a5c980f6b5be107e9db180d8fc46e124c7b29d
+SHA512 (flang-12.0.1.src.tar.xz) = c22ad71e4364d59b122bb4f6ed5e372a20cf6641410bf68e6f525df201ab820f3ae7de31202d694d724480358f7a2219a17b41c278fdc512e57e5f7a04c06883
+Size (flang-12.0.1.src.tar.xz) = 1006896 bytes

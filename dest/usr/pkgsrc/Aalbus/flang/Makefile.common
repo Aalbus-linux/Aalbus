@@ -1,0 +1,112 @@
+# $NetBSD: Makefile.common,v 1.46 2020/07/02 10:45:38 wiz Exp $
+# used by lang/clang/Makefile
+# used by lang/clang-tools-extra/Makefile
+
+.include "../../lang/llvm/version.mk"
+
+DISTNAME=	flang-${LLVM_VERSION}.src
+CATEGORIES=	lang devel
+
+MAINTAINER=	staal1978@gmail.com
+HOMEPAGE=	https://flang.llvm.org/
+COMMENT=	Fortran compiler targeting LLVM
+LICENSE=	apache-2.0
+
+CONFIGURE_DIRS=		${WRKDIR}/build
+CMAKE_ARG_PATH=		${WRKSRC}
+
+USE_LANGUAGES=		c c++14
+USE_CMAKE=		yes
+GCC_REQD+=		5
+
+CFLAGS+= -fno-lto
+
+CMAKE_ARGS+=	-DLLVM_CONFIG=${LLVM_CONFIG_PATH:Q}
+CMAKE_ARGS+=	-DCMAKE_BUILD_TYPE=Release
+CMAKE_ARGS+=	-DCMAKE_C_COMPILER=${CC:Q}
+CMAKE_ARGS+=	-DCMAKE_CXX_COMPILER=${CXX:Q}
+
+.include "../../mk/compiler.mk"
+
+CMAKE_ARGS.Darwin+=	-DCMAKE_LIBTOOL=/usr/bin/libtool
+.if defined(OSX_SDK_PATH)
+CMAKE_ARGS.Darwin+=	-DDEFAULT_SYSROOT=${OSX_SDK_PATH:Q}
+.endif
+
+#REPLACE_PERL+=		test/make_test_dirs.pl
+
+#REPLACE_PYTHON+=	www/builtins.py
+
+.if ${OPSYS} == "NetBSD" && ${PKGSRC_COMPILER:Mclang}
+# command to check if clang is using libc++ or libstdc++
+LIBCPP_CHECK!=	\
+	printf '%s\n' \
+		'\#include <ciso646>' \
+		'\#ifdef _LIBCPP_VERSION' \
+		'YES' \
+		'\#endif' \
+	| ${CLANGBASE}/bin/clang++ -x c++ -E - 2>&1 \
+	| grep YES || true
+.else
+LIBCPP_CHECK=	NO
+.endif
+
+# patch NetBSD::GetCXXStdlibType
+.if ${OPSYS} == "NetBSD" && ${LIBCPP_CHECK} != YES
+SUBST_CLASSES+=			libcxx
+SUBST_STAGE.libcxx=		pre-configure
+SUBST_MESSAGE.libcxx=		Patching toolchain to use libstdc++ (matching the host compiler)
+SUBST_FILES.libcxx=		lib/Driver/ToolChains/NetBSD.cpp
+SUBST_SED.libcxx=		-e 's,(Major >= 7 || Major == 0),(false),'
+
+CMAKE_ARGS+=			-DCLANG_DEFAULT_CXX_STDLIB:STRING="libstdc++"
+.endif
+
+# Enable full LLVM suite on SunOS
+.if ${OPSYS} == "SunOS"
+.include "../../lang/compiler-rt/buildlink3.mk"
+.include "../../lang/libcxx/buildlink3.mk"
+.include "../../lang/libcxxabi/buildlink3.mk"
+.include "../../lang/libunwind/buildlink3.mk"
+CMAKE_ARGS+=    -DCLANG_DEFAULT_RTLIB:STRING="compiler-rt"
+CMAKE_ARGS+=    -DCLANG_DEFAULT_CXX_STDLIB:STRING="libc++"
+.endif
+
+# 3.8.0 -> 3.8
+LLVM_MAJOR=	${PKGVERSION_NOREV:C/^([0-9]+\.[0-9]+)\..*$/\1/}
+PLIST_SUBST+=	LLVM_MAJOR=${LLVM_MAJOR}
+
+PLIST_VARS+=	notdylib
+.if ${SHLIB_TYPE} == "dylib"
+SOEXT=		dylib
+.else
+SOEXT=		so
+PLIST.notdylib=	yes
+.endif
+PLIST_SUBST+=	SOEXT=${SOEXT}
+
+PKG_OPTIONS_VAR=	PKG_OPTIONS.clang
+PKG_SUPPORTED_OPTIONS=	tests
+
+.include "../../mk/bsd.options.mk"
+
+.if !empty(PKG_OPTIONS:Mtests)
+CMAKE_ARGS+=		-DLLVM_INCLUDE_TESTS=ON
+CMAKE_ARGS+=		-DCLANG_INCLUDE_TESTS=ON
+TEST_TARGET=		clang-test
+TEST_ENV+=		LD_LIBRARY_PATH=${WRKDIR}/build/lib
+.include "../../devel/googletest/buildlink3.mk"
+.else
+CMAKE_ARGS+=		-DLLVM_INCLUDE_TESTS=OFF
+CMAKE_ARGS+=		-DCLANG_INCLUDE_TESTS=OFF
+.endif
+
+post-extract:
+	${MKDIR} ${WRKDIR}/build
+
+.include "../../textproc/libxml2/buildlink3.mk"
+.include "../../devel/zlib/buildlink3.mk"
+.include "../../lang/python/application.mk"
+.include "../../lang/python/tool.mk"
+DEPENDS+=	llvm-${PKGVERSION_NOREV}{,nb*}:../../lang/llvm
+.include "../../lang/llvm/buildlink3.mk"
