@@ -1,0 +1,4 @@
+The Aalbus base metapackage. Pulls in the minimal GNU-free runtime needed
+to boot, network, partition, format, manage users and install binary
+packages with pkgin. It contains no compiler or build tools: see
+base-devel for those.

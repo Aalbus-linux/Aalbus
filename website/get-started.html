@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get started - Aalbus Linux</title>
+  <meta name="description" content="How to get Aalbus Linux: install media, the base system and the development metapackage.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="index.html">Aalbus</a>
+  <nav class="site" aria-label="Main">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="get-started.html" aria-current="page">Get started</a></li>
+      <li><a href="repositories.html">Packages</a></li>
+      <li><a href="contribute.html">Contribute</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Get started</h1>
+  <p class="lead">There are no published installation images yet. This page explains how the first release will be built and what it will contain.</p>
+
+  <div class="notice">
+    The base packages are being updated and tested. Install media will be built once the base system boots in a virtual machine.
+  </div>
+
+  <h2>What the install media will contain</h2>
+  <p>A minimal image with the <code>base</code> metapackage. It boots with UEFI or BIOS, starts the s6 init system, brings up networking and gives you a shell.</p>
+  <ul>
+    <li>Partitioning and filesystem tools: ext4, FAT, GPT (and more filesystems in the optional sets)</li>
+    <li>The pkgsrc package manager, pkgin</li>
+    <li>No compiler by default</li>
+  </ul>
+
+  <h2>Installing a development system</h2>
+  <p>After installing the base system, add the development tools to build pkgsrc from source:</p>
+  <pre><code># install the development metapackage (once it is in a repository)
+pkgin install base-devel</code></pre>
+
+  <h2>Building the install media yourself</h2>
+  <p>The install image is produced from a root filesystem that has the base system installed in a staging directory. The build script is in the repository under <code>src/mkiso/</code>. It is a draft and has not been run yet.</p>
+  <pre><code>LIMINE_BIOS_CD=/path/to/limine-bios-cd.bin \
+LIMINE_UEFI_CD=/path/to/limine-uefi-cd.bin \
+  ./src/mkiso/mkiso.sh ROOTFS KERNEL INITRD aalbus.iso</code></pre>
+
+  <h2>Requirements</h2>
+  <p>Hardware requirements will be listed here once the first install image has been tested. Until then, assume a 64-bit x86 machine with a network connection.</p>
+</main>
+
+<footer class="site">
+  <ul>
+    <li><a href="https://github.com/Aalbus-linux/Aalbus">Source (GitHub)</a></li>
+    <li><a href="https://github.com/Aalbus-linux/Aalbus/issues">Issues</a></li>
+  </ul>
+</footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aalbus Linux</title>
+  <meta name="description" content="Aalbus is an experimental Linux distribution built on musl, LLVM and BSD-derived userland, with s6 init and a decentralized pkgsrc-based package system.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="index.html">Aalbus</a>
+  <nav class="site" aria-label="Main">
+    <ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="get-started.html">Get started</a></li>
+      <li><a href="repositories.html">Packages</a></li>
+      <li><a href="contribute.html">Contribute</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Aalbus Linux</h1>
+  <p class="lead">A small, experimental Linux distribution built from musl, the LLVM toolchain and mostly BSD-derived userland, managed with pkgsrc and run by s6.</p>
+
+  <div class="notice">
+    Aalbus is pre-release. The base system is being rebuilt and no installation images are published yet.
+    The <a href="repositories.html">packages</a> page describes the plan.
+  </div>
+
+  <h2>What it is</h2>
+  <div class="grid two">
+    <div class="card">
+      <h3>Clean base</h3>
+      <p>musl libc, LLVM/clang and libc++, and BSD and suckless tools (nbase from NetBSD, ubase, mksh). The default system aims to be free of GNU tools.</p>
+    </div>
+    <div class="card">
+      <h3>Own init</h3>
+      <p>s6, s6-rc and s6-linux-init for supervision and service management, with mdevd for device nodes and utmps for login records.</p>
+    </div>
+    <div class="card">
+      <h3>pkgsrc packages</h3>
+      <p>Installed as binary packages with pkgin. Building from source is one metapackage away, so the same system can rebuild itself.</p>
+    </div>
+    <div class="card">
+      <h3>Decentralized by design</h3>
+      <p>Anyone can run a package repository or a mirror. No single server, and no single maintainer, has to keep the distribution alive.</p>
+    </div>
+  </div>
+
+  <h2>Two metapackages</h2>
+  <p>Most users only need <code>base</code>: the runtime, the networking, the filesystem tools and the package manager. Developers add <code>base-devel</code> to build anything in pkgsrc from source.</p>
+  <table>
+    <thead><tr><th>Metapackage</th><th>Contains</th></tr></thead>
+    <tbody>
+      <tr><td><code>base</code></td><td>Boot and init, networking, shell, core userland, filesystem tools, pkgin</td></tr>
+      <tr><td><code>base-devel</code></td><td>LLVM toolchain, make and configure tools, parser generators, git, perl, pkgsrc build dependencies</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Read more</h2>
+  <ul>
+    <li><a href="about.html">About the design</a>: why these components, and how they differ from other musl distributions.</li>
+    <li><a href="get-started.html">Get started</a>: install media and what the first release will provide.</li>
+    <li><a href="repositories.html">Packages and hosting</a>: how the package repositories work and where they could be hosted.</li>
+    <li><a href="contribute.html">Contribute</a>: how to help, and where to talk to the project.</li>
+  </ul>
+</main>
+
+<footer class="site">
+  <ul>
+    <li><a href="https://github.com/Aalbus-linux/Aalbus">Source (GitHub)</a></li>
+    <li><a href="https://github.com/Aalbus-linux/Aalbus/issues">Issues</a></li>
+    <li><a href="https://www.reddit.com/r/aalbuslinux/">Reddit</a></li>
+    <li><a href="https://discord.gg/8fg4uP3vgY">Discord</a></li>
+  </ul>
+  <p>Aalbus is released under the license in the repository. Not affiliated with NetBSD, FreeBSD or pkgsrc upstream.</p>
+</footer>
+</body>
+</html>

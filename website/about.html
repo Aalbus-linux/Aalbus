@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About - Aalbus Linux</title>
+  <meta name="description" content="Design of Aalbus Linux: musl, LLVM, BSD userland, s6 init and pkgsrc.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="index.html">Aalbus</a>
+  <nav class="site" aria-label="Main">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" aria-current="page">About</a></li>
+      <li><a href="get-started.html">Get started</a></li>
+      <li><a href="repositories.html">Packages</a></li>
+      <li><a href="contribute.html">Contribute</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>About Aalbus</h1>
+  <p class="lead">Aalbus is a hobby distribution built to explore diversity in the Linux ecosystem. It is not driven by license or language opinions. The name is a nod to Gentoo, Tux and Beastie.</p>
+
+  <h2>Components</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Area</th><th>Aalbus</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>C library</td><td>musl</td><td>Small, clean, and easy to read</td></tr>
+        <tr><td>Compiler</td><td>LLVM/clang, libc++</td><td>One toolchain for C and C++</td></tr>
+        <tr><td>Init</td><td>s6, s6-rc, s6-linux-init</td><td>Small supervision suite, with dependency-based service management</td></tr>
+        <tr><td>Core userland</td><td>nbase (NetBSD), ubase, mksh</td><td>BSD tools where possible, and a POSIX shell</td></tr>
+        <tr><td>Package system</td><td>pkgsrc with pkgin</td><td>Portable, widely used, and easy to host anywhere</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How it differs from related systems</h2>
+  <p>Aalbus is close to Chimera Linux in spirit: BSD userland, musl and LLVM. The main differences are the base and the package system.</p>
+  <ul>
+    <li><strong>Base:</strong> Aalbus builds on NetBSD's userland (nbase and pkgsrc), where Chimera uses FreeBSD's.</li>
+    <li><strong>Packages:</strong> pkgsrc, where Chimera uses an Alpine-style packaging format.</li>
+    <li><strong>Init:</strong> s6 with s6-openrc (in progress), where Chimera uses dinit with some systemd compatibility.</li>
+  </ul>
+
+  <h2>Design principles</h2>
+  <div class="grid two">
+    <div class="card">
+      <h3>Decentralized</h3>
+      <p>The whole system is maintained in an extended pkgsrc tree. Anyone can take a copy of the distribution and run a complete package repository, so the project does not depend on any one person or server.</p>
+    </div>
+    <div class="card">
+      <h3>Minimal first</h3>
+      <p>The default install is <code>base</code>: boot, network, filesystems, shell and the package manager. Compilers and build tools are optional and live in <code>base-devel</code>.</p>
+    </div>
+    <div class="card">
+      <h3>GNU-free default</h3>
+      <p>The default system avoids GNU tools such as bash, coreutils, readline and gettext. People who need GNU software can install it from pkgsrc.</p>
+    </div>
+    <div class="card">
+      <h3>Self-hosting</h3>
+      <p>With <code>base-devel</code>, an Aalbus system can rebuild the pkgsrc tree from source, which keeps the distribution buildable on its own.</p>
+    </div>
+  </div>
+
+  <h2>Current status</h2>
+  <p>The base packages were last built in 2021 and are being updated. The install media and the installer are not finished yet. See the <a href="get-started.html">Get started</a> page for what to expect in the first release.</p>
+</main>
+
+<footer class="site">
+  <ul>
+    <li><a href="https://github.com/Aalbus-linux/Aalbus">Source (GitHub)</a></li>
+    <li><a href="https://github.com/Aalbus-linux/Aalbus/issues">Issues</a></li>
+  </ul>
+</footer>
+</body>
+</html>

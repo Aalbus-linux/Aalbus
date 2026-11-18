@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Packages and hosting - Aalbus Linux</title>
+  <meta name="description" content="How Aalbus binary package repositories work, and how anyone can host or mirror them.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="index.html">Aalbus</a>
+  <nav class="site" aria-label="Main">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="get-started.html">Get started</a></li>
+      <li><a href="repositories.html" aria-current="page">Packages</a></li>
+      <li><a href="contribute.html">Contribute</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Packages and hosting</h1>
+  <p class="lead">Aalbus packages come from pkgsrc. Anyone can publish a repository, and anyone can mirror one.</p>
+
+  <h2>How a repository works</h2>
+  <p>A pkgsrc binary repository is a directory tree of package archives plus an index file. Nothing more is needed, so a repository can be served from any static web server or copied with <code>rsync</code>.</p>
+  <pre><code>https://packages.example.org/aalbus/
+    base-0.1.tgz
+    ...
+    All/
+    pkg_summary.gz        index of every package</code></pre>
+
+  <p>To use a repository, add its URL to <code>pkgin</code>:</p>
+  <pre><code># /usr/pkg/etc/pkgin/repositories.conf
+https://packages.example.org/aalbus/</code></pre>
+
+  <h2>Where to host packages</h2>
+  <p>Ideas for the project, roughly in order of how we would start:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Option</th><th>Good for</th><th>Trade-offs</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Object storage with a CDN</strong> (Cloudflare R2, Backblaze B2, S3)</td>
+          <td>The primary repository. Cheap, fast, and easy to script from a build host.</td>
+          <td>Needs an account and a small amount of money each month.</td>
+        </tr>
+        <tr>
+          <td><strong>GitHub Releases</strong></td>
+          <td>Release-tagged artifacts and install images, visible to the community.</td>
+          <td>2 GB per file, not a CDN, and not a repository layout. Use as an archive.</td>
+        </tr>
+        <tr>
+          <td><strong>Volunteer mirrors</strong> (rsync and HTTP, as NetBSD and FreeBSD do)</td>
+          <td>Matches the decentralized goal best. Anyone can host a copy.</td>
+          <td>Needs a published mirror list and a way to check mirrors are complete.</td>
+        </tr>
+        <tr>
+          <td><strong>Your own VPS</strong> with nginx</td>
+          <td>Full control. Good for a community-run primary.</td>
+          <td>Ongoing maintenance and security updates.</td>
+        </tr>
+        <tr>
+          <td><strong>Codeberg or Forgejo</strong></td>
+          <td>Fully open-source hosting for pages and releases.</td>
+          <td>Smaller capacity than the large providers.</td>
+        </tr>
+        <tr>
+          <td><strong>IPFS or torrents</strong></td>
+          <td>Extra redundancy for large images.</td>
+          <td>Not a primary source. Availability depends on peers.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Trust and signing</h2>
+  <p>Repository indexes and install images will be signed with a project key. Its fingerprint will be published here and in the repository, so you can check a mirror before you trust it.</p>
+
+  <div class="notice">
+    Nothing is hosted yet. The first repository will be published after the base packages build cleanly.
+  </div>
+
+  <h2>Run a mirror</h2>
+  <p>Once the first repository exists, mirrors will be listed on this page. The plan is to make every repository use the same layout, so any mirror is a complete copy.</p>
+</main>
+
+<footer class="site">
+  <ul>
+    <li><a href="https://github.com/Aalbus-linux/Aalbus">Source (GitHub)</a></li>
+    <li><a href="https://github.com/Aalbus-linux/Aalbus/issues">Issues</a></li>
+  </ul>
+</footer>
+</body>
+</html>
