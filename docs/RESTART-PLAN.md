@@ -35,7 +35,7 @@ is blocked, and what comes next.
 
 | Path | What |
 | --- | --- |
-| `dest/usr/pkgsrc/Aalbus/base/` | New `base` metapackage: GNU-free runtime, boot, networking, pkgin |
+| `dest/usr/pkgsrc/Aalbus/base/` | New `base` metapackage: runtime, boot, networking, pkgin |
 | `dest/usr/pkgsrc/Aalbus/base-devel/` | New `base-devel` metapackage: compiler, make/configure tooling, parser generators |
 | `src/mkiso/mkiso.sh` | Install-media build script (untested, see section 6) |
 | `website/` | Static project website, ready to publish as its own repository |
@@ -49,11 +49,12 @@ section 5).
 
 1. **Base = runtime, base-devel = build.** Matches your design. `base`
    contains no compiler. `base-devel` depends on `base`.
-2. **GNU-free means "no GNU projects as tools or libraries".** It does not mean
-   "no GPL code". The Linux kernel, e2fsprogs and kmod are GPL, but they are
-   not GNU userland. The `base` list avoids GNU tools: no bash, coreutils,
-   readline, gettext, autotools or gmake. `gettext-tiny` replaces gettext, and
-   `kati` provides `gmake`.
+2. **Identity over purity.** Aalbus should be clearly distinct from standard
+   GNU/Linux distributions. Its identity comes from the stack: musl, LLVM/libc++,
+   BSD and suckless userland, s6 init, and pkgsrc. GNU software is not banned.
+   Where a choice exists, prefer the non-GNU component (for example
+   `gettext-tiny` over gettext, `kati` as `gmake`), but a GNU tool stays where
+   it is the practical option.
 3. **Shell:** `mksh` (static, already in the tree). `/bin/sh` only.
 4. **Init:** s6 + s6-rc + s6-linux-init (existing packages). dinit and the
    systemd compatibility layer are deliberately out of scope for now.
@@ -84,7 +85,8 @@ xorriso. It has not been run. It needs:
 - a root filesystem produced by installing `base` into a staging directory
   (with `pkgin` or `pkg_add`, on a build host with pkgsrc),
 - an initramfs. This is the largest open item. **dracut is bash-based, so
-  using it for the initramfs conflicts with the GNU-free goal.** The planned
+  using it for the initramfs adds bash to the base, which works against the
+  distinct-userland identity.** The planned
   alternative is a small mksh + mdevd initramfs that mounts the squashfs and
   uses overlayfs for writes,
 - a bootloader image (see 7).
@@ -93,7 +95,7 @@ xorriso. It has not been run. It needs:
 
 | Option | Pros | Cons |
 | --- | --- | --- |
-| **Limine** (BSD-2-Clause) | BIOS and UEFI, small, actively maintained, no GNU dependency | Not yet packaged here; needs a pkgsrc package |
+| **Limine** (BSD-2-Clause) | BIOS and UEFI, small, actively maintained, no gnu-efi dependency | Not yet packaged here; needs a pkgsrc package |
 | **refind** (existing) | Already packaged | Depends on `gnu-efi` and a GNU-style build |
 | **efi-clang + own stub** (existing package) | Fully native, LLVM only | Most work; a stub only does what we write |
 

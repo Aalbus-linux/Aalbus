@@ -1,8 +1,9 @@
 # $NetBSD$
 #
 # Aalbus "base" metapackage: the default runtime system.
-# Installing this package (via pkgin) yields a bootable, networked,
-# GNU-free system with a package manager. It deliberately contains no
+# Installing this package (via pkgin) yields a bootable, networked system
+# with a package manager, built from the Aalbus stack (musl, s6, BSD and
+# suckless userland). It deliberately contains no
 # compiler and no build tools; those live in base-devel.
 
 DISTNAME=	base-0.1
@@ -10,7 +11,7 @@ PKGNAME=	${DISTNAME}
 CATEGORIES=	meta-pkgs
 MAINTAINER=	TODO-set-maintainer@example.invalid
 HOMEPAGE=	https://github.com/Aalbus-linux/Aalbus
-COMMENT=	Aalbus GNU-free base system (runtime)
+COMMENT=	Aalbus base system (runtime)
 LICENSE=	isc
 
 META_PACKAGE=	yes
