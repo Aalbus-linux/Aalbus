@@ -1,0 +1,4 @@
+The Aalbus base-devel metapackage. Adds the LLVM toolchain, make and
+configure tooling, parser generators and source control on top of base,
+so that the complete pkgsrc tree can be built from source on an Aalbus
+system. Not needed for a plain runtime or install.
