@@ -1,4 +1,4 @@
-![Aalbus](https://static.wikia.nocookie.net/lovecraft/images/1/16/Albp3.jpg)
+<center><img src="docs/Albino_Lovecraftian_Penguin_Mascot.png" alt="an albino monster penguin, mascot" width="600"/></center>
 
 # Aalbus
 ## The master repository for the Aalbus distribution, a Linux distribution using musl libc, the LLVM tool chain and a mostly (Net)BSD-derived userland.
